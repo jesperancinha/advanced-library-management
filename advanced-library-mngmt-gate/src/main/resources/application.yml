@@ -25,17 +25,8 @@ resilience4j.circuitbreaker:
       ignoreExceptions:
 #        - io.github.robwin.exception.BusinessException
   instances:
-    cars:
+    almr:
       baseConfig: default
-    roads:
-      registerHealthIndicator: true
-      slidingWindowSize: 10
-      minimumNumberOfCalls: 10
-      permittedNumberOfCallsInHalfOpenState: 3
-      waitDurationInOpenState: 5s
-      failureRateThreshold: 50
-      eventConsumerBufferSize: 10
-#      recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
 resilience4j.retry:
   configs:
     default:
@@ -48,20 +39,15 @@ resilience4j.retry:
       ignoreExceptions:
 #        - io.github.robwin.exception.BusinessException
   instances:
-    cars:
-      baseConfig: default
-    roads:
+    almr:
       baseConfig: default
 resilience4j.bulkhead:
   configs:
     default:
       maxConcurrentCalls: 100
   instances:
-    cars:
+    almr:
       maxConcurrentCalls: 10
-    roads:
-      maxWaitDuration: 10ms
-      maxConcurrentCalls: 20
 
 resilience4j.thread-pool-bulkhead:
   configs:
@@ -70,12 +56,8 @@ resilience4j.thread-pool-bulkhead:
       coreThreadPoolSize: 2
       queueCapacity: 2
   instances:
-    cars:
+    almr:
       baseConfig: default
-    roads:
-      maxThreadPoolSize: 1
-      coreThreadPoolSize: 1
-      queueCapacity: 1
 
 resilience4j.ratelimiter:
   configs:
@@ -86,12 +68,8 @@ resilience4j.ratelimiter:
       timeoutDuration: 0
       eventConsumerBufferSize: 100
   instances:
-    cars:
+    almr:
       baseConfig: default
-    roads:
-      limitForPeriod: 6
-      limitRefreshPeriod: 500ms
-      timeoutDuration: 3s
 
 resilience4j.timelimiter:
   configs:
@@ -99,7 +77,5 @@ resilience4j.timelimiter:
       cancelRunningFuture: false
       timeoutDuration: 2s
   instances:
-    cars:
-      baseConfig: default
-    roads:
+    almr:
       baseConfig: default

@@ -9,7 +9,7 @@ services:
     hostname: advanced_library_mngmt_postgres
     container_name: advanced_library_mngmt_postgres
     build:
-      context: ./docker-psql/.mngmt
+      context: ./docker-psql/.
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin
