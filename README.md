@@ -6,6 +6,8 @@ Using Resilience4J, this is a Demo project which uses a Library as background an
 
 ## References
 
+- [Resilience 4J Kotlin](https://resilience4j.readme.io/docs/getting-started-4)
+
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)

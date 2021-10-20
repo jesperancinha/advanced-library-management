@@ -1,6 +1,6 @@
 package org.jesperancinha.management.reactive.repository
 
-import org.jesperancinha.management.reactive.domain.Book
+import org.jesperancinha.management.domain.Book
 import org.springframework.data.r2dbc.repository.R2dbcRepository
 import reactor.core.publisher.Mono
 
