@@ -1,0 +1,55 @@
+version: "3.7"
+
+networks:
+  mngmt:
+    driver: bridge
+
+services:
+  advanced_library_mngmt_postgres:
+    hostname: advanced_library_mngmt_postgres
+    container_name: advanced_library_mngmt_postgres
+    build:
+      context: ./docker-psql/.mngmt
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_MULTIPLE_DATABASES=
+    ports:
+      - "5432:5432"
+    networks:
+      - mngmt
+
+  advanced_library_mngmt_gate:
+    hostname: advanced_library_mngmt_gate
+    container_name: advanced_library_mngmt_gate
+    build:
+      context: advanced-library-mngmt-gate/.
+    ports:
+      - 8080:8080
+    restart: on-failure
+    networks:
+      - mngmt
+
+  advanced_library_mngmt_gate:
+    hostname: advanced_library_mngmt_gate
+    container_name: advanced_library_mngmt_gate
+    build:
+      context: advanced-library-mngmt-reactive/.
+    ports:
+      - 8081:8081
+    restart: on-failure
+    networks:
+      - mngmt
+
+  advanced_library_mngmt_gate:
+    hostname: advanced_library_mngmt_gate
+    container_name: advanced_library_mngmt_gate
+    build:
+      context: advanced-library-mngmt-mvc/.
+    ports:
+      - 8082:8082
+    restart: on-failure
+    networks:
+      - mngmt
+
+
