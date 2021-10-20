@@ -13,31 +13,15 @@
     <packaging>jar</packaging>
 
     <name>org.jesperancinha.management advanced-library-mngmt-mvc</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.6.0-RC</kotlin.version>
-        <kotlin.code.style>official</kotlin.code.style>
-        <junit.version>4.12</junit.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
-            <version>${kotlin.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit</artifactId>
             <version>${kotlin.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
