@@ -12,7 +12,8 @@
     <artifactId>advanced-library-mngmt-mvc</artifactId>
     <packaging>jar</packaging>
 
-    <name>org.jesperancinha.management advanced-library-mngmt-mvc</name>
+    <name>Advanced Library Management Model View Controller</name>
+
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>

@@ -1,6 +1,9 @@
 # advanced-library-mngmt-reactive
 
+## References
+
 - [R2DBC - Yes, it's related to R2D2, so please...](https://r2dbc.io/)
+- [Reactive Spring Boot Application with R2DBC and PostgreSQL](https://medium.com/bliblidotcom-techblog/reactive-spring-boot-application-with-r2dbc-and-postgresql-849fc7811135)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
