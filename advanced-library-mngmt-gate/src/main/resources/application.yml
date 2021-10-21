@@ -21,16 +21,12 @@ resilience4j.circuitbreaker:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
-      ignoreExceptions:
-#        - io.github.robwin.exception.BusinessException
     shared:
       slidingWindowSize: 100
       permittedNumberOfCallsInHalfOpenState: 30
       waitDurationInOpenState: 1s
       failureRateThreshold: 50
       eventConsumerBufferSize: 10
-      ignoreExceptions:
-#        - io.github.robwin.exception.BusinessException
   instances:
     almr:
       baseConfig: default
@@ -43,8 +39,6 @@ resilience4j.retry:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
-      ignoreExceptions:
-#        - io.github.robwin.exception.BusinessException
   instances:
     almr:
       baseConfig: default
