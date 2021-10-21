@@ -3,8 +3,8 @@ package org.jesperancinha.management.domain
 /**
  * Created by jofisaes on 20/10/2021
  */
-data class Book(
-    val id: Long,
-    val name: String,
+open class Book(
+    open val id: Long,
+    open val name: String,
 ) {
 }
