@@ -375,7 +375,7 @@ resilience4j.timelimiter:
   instances:
     almr_testcase_1:
       cancelRunningFuture: false
-      timeoutDuration: 2s
+      timeoutDuration: 100ms
     almr_testcase_2:
       cancelRunningFuture: false
       timeoutDuration: 2s
