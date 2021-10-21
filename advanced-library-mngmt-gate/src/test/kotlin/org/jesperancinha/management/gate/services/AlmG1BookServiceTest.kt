@@ -25,8 +25,8 @@ class AlmG1BookServiceTest(
     lateinit var webClient: WebClient
 
     @Test
-    fun getBookByIdTest() {
-        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(mockk<Book>()).delayElement(Duration.ofSeconds(5L))
+    fun testGetBookByIdTestWhenTimeoutRetrieveSolution() {
+        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(100L).then(Mono.just(mockk<Book>())).delayElement(Duration.ofSeconds(5L))
         every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(Book(0L, "Solution"))
 
         val bookById = almG1BookService.getBookById(100L)

@@ -26,8 +26,8 @@ open class AlmG1BookService(
     open fun getBookById(id: Long): Mono<Book> =
         webClient.getBookViaReactiveServiceById(id)
 
-    open fun getBookByIdJPA(exception: Exception): Mono<Book> =
-        webClient.getBookViaJpaServiceById(100L)
+    open fun getBookByIdJPA(id: Long, exception: Exception): Mono<Book> =
+        webClient.getBookViaJpaServiceById(id)
 
 
     companion object {
