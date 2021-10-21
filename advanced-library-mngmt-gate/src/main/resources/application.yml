@@ -1,4 +1,11 @@
 server.servlet.context-path: /api/almg
+
+management:
+  endpoints.web.exposure.include: "*"
+  health:
+    circuitbreakers.enabled: true
+    ratelimiters.enabled: true
+
 resilience4j.circuitbreaker:
   configs:
     default:
