@@ -1,0 +1,175 @@
+{
+  "status": "UP",
+  "components": {
+    "circuitBreakers": {
+      "status": "UP",
+      "details": {
+        "almr_testcase_3": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        },
+        "almr_testcase_10": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        },
+        "almr_testcase_2": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        },
+        "almr_testcase_5": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        },
+        "almr_testcase_4": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        },
+        "almr_testcase_1": {
+          "status": "CIRCUIT_OPEN",
+          "details": {
+            "failureRate": "80.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "0.0%",
+            "slowCallRateThreshold": "50.0%",
+            "bufferedCalls": 5,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 4,
+            "notPermittedCalls": 3,
+            "state": "OPEN"
+          }
+        },
+        "almr_testcase_7": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        },
+        "almr_testcase_6": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        },
+        "almr_testcase_9": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        },
+        "almr_testcase_8": {
+          "status": "UP",
+          "details": {
+            "failureRate": "-1.0%",
+            "failureRateThreshold": "50.0%",
+            "slowCallRate": "-1.0%",
+            "slowCallRateThreshold": "100.0%",
+            "bufferedCalls": 0,
+            "slowCalls": 0,
+            "slowFailedCalls": 0,
+            "failedCalls": 0,
+            "notPermittedCalls": 0,
+            "state": "CLOSED"
+          }
+        }
+      }
+    },
+    "diskSpace": {
+      "status": "UP",
+      "details": {
+        "total": 250685575168,
+        "free": 21846810624,
+        "threshold": 10485760,
+        "exists": true
+      }
+    },
+    "ping": {
+      "status": "UP"
+    },
+    "rateLimiters": {
+      "status": "UNKNOWN"
+    }
+  }
+}
