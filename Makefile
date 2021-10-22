@@ -33,3 +33,5 @@ prune-all: stop
 	docker builder prune
 	docker system prune --all --volumes
 case:
+locust-start:
+	cd locust && locust

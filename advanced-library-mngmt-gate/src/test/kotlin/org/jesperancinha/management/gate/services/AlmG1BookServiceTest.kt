@@ -5,7 +5,6 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.delay
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.exception.ReactiveAccessException
@@ -52,13 +51,22 @@ class AlmG1BookServiceTest(
         }
         every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(Book(0L, "SolutionClosed"))
 
-        val bookById = almG1BookService.getBookCBById(100L)
-        bookById.shouldNotBeNull()
-        bookById.blockOptional().ifPresent { book ->
-            book.name.shouldBe("SolutionClosed")
+        run {
+            val bookById = almG1BookService.getBookCBById(100L)
+            bookById.shouldNotBeNull()
+            bookById.blockOptional().ifPresent { book ->
+                book.name.shouldBe("SolutionClosed")
+            }
         }
 
         repeat(3) {
+            val bookById = almG1BookService.getBookCBById(100L)
+            bookById.shouldNotBeNull()
+            bookById.blockOptional().ifPresent { book ->
+                book.name.shouldBe("SolutionOpen")
+            }
+        }
+        repeat(40) {
             val bookById = almG1BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
