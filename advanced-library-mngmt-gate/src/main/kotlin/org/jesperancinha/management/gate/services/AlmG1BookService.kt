@@ -1,16 +1,19 @@
 package org.jesperancinha.management.gate.services
 
 import io.github.resilience4j.bulkhead.annotation.Bulkhead
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter
 import io.github.resilience4j.retry.annotation.Retry
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter
 import mu.KotlinLogging
 import org.jesperancinha.management.domain.Book
-import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.client.WebClientInterface
+import org.jesperancinha.management.gate.exception.IgnoredException
+import org.jesperancinha.management.gate.exception.ReactiveAccessException
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
+import java.util.concurrent.TimeoutException
 
 /**
  * Created by jofisaes on 20/10/2021
@@ -34,7 +37,22 @@ open class AlmG1BookService(
     open fun getBookCBById(id: Long): Mono<Book> =
         webClientInterface.getBookViaReactiveServiceById(id)
 
-    open fun getBookByIdJPA(id: Long, exception: Exception): Mono<Book> {
+    open fun getBookByIdJPA(id: Long, exception: ReactiveAccessException): Mono<Book> {
+        logger.info("Current Exception -> {}", exception)
+        return webClientInterface.getBookViaJpaServiceById(id)
+    }
+
+    open fun getBookByIdJPA(id: Long, exception: CallNotPermittedException): Mono<Book> {
+        logger.info("Current Exception -> {}", exception)
+        return webClientInterface.getBookViaJpaServiceById(id)
+    }
+
+    open fun getBookByIdJPA(id: Long, exception: TimeoutException): Mono<Book> {
+        logger.info("Current Exception -> {}", exception)
+        return webClientInterface.getBookViaJpaServiceById(id)
+    }
+
+    open fun getBookByIdJPA(id: Long, exception: IgnoredException): Mono<Book> {
         logger.info("Current Exception -> {}", exception)
         return webClientInterface.getBookViaJpaServiceById(id)
     }

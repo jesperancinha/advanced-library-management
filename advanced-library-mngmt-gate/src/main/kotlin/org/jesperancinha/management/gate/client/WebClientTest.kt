@@ -1,6 +1,7 @@
 package org.jesperancinha.management.gate.client
 
 import org.jesperancinha.management.domain.Book
+import org.jesperancinha.management.gate.exception.NotConfiguredException
 import org.jesperancinha.management.gate.exception.ReactiveAccessException
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
@@ -11,11 +12,12 @@ import java.time.Duration
 @Profile("test")
 class WebClientTest : WebClientInterface {
     override fun getBookViaReactiveServiceById(id: Long): Mono<Book> =
-        listOf(
+        listOf<Mono<Book>>(
             Mono.error(ReactiveAccessException()),
             Mono.error(ReactiveAccessException()),
             Mono.error(ReactiveAccessException()),
             Mono.error(ReactiveAccessException()),
+            Mono.error(NotConfiguredException()),
             Mono.just(Book(1, "REACTIVE_Test")),
             Mono.just(Book(1, "REACTIVE_Test")).delaySubscription(Duration.ofSeconds(1)),
             Mono.just(Book(1, "REACTIVE_Test"))
