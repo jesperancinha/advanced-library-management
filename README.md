@@ -8,6 +8,7 @@ Using Resilience4J, this is a Demo project which uses a Library as background an
 
 - [Resilience 4J Kotlin](https://resilience4j.readme.io/docs/getting-started-4)
 - [How to Use Resilience4j to Implement Circuit Breaker?](https://www.webagesolutions.com/blog/how-to-use-resilience4j-to-implement-circuit-breaker)
+- [RESILIENCE4J CONFIGURATION](https://camel.apache.org/components/latest/eips/resilience4jConfiguration-eip.html)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 

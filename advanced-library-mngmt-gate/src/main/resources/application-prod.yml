@@ -3,16 +3,17 @@ resilience4j.circuitbreaker:
     almr_testcase_1:
       registerHealthIndicator: true
       slidingWindowSize: 10
+      slidingWindowSizeType: count-based
       minimumNumberOfCalls: 5
-      permittedNumberOfCallsInHalfOpenState: 3
-      automaticTransitionFromOpenToHalfOpenEnabled: true
-      waitDurationInOpenState: 5s
       failureRateThreshold: 50
-      eventConsumerBufferSize: 10
+      slowCallRateThreshold: 50
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 1s
       recordExceptions:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
+        - org.jesperancinha.management.gate.exception.ReactiveAccessException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_2:

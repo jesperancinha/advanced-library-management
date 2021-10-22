@@ -5,6 +5,7 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter
 import io.github.resilience4j.retry.annotation.Retry
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter
+import mu.KotlinLogging
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.gate.client.WebClient
 import org.springframework.stereotype.Service
@@ -15,8 +16,11 @@ import reactor.core.publisher.Mono
  */
 @Service
 open class AlmG1BookService(
-    private val webClient: WebClient
+    private val webClient: WebClient,
 ) {
+
+
+    private val logger = KotlinLogging.logger {}
 
     @TimeLimiter(name = ALMR_TC_1, fallbackMethod = "getBookByIdJPA")
     @CircuitBreaker(name = ALMR_TC_1, fallbackMethod = "getBookByIdJPA")
@@ -26,8 +30,14 @@ open class AlmG1BookService(
     open fun getBookById(id: Long): Mono<Book> =
         webClient.getBookViaReactiveServiceById(id)
 
-    open fun getBookByIdJPA(id: Long, exception: Exception): Mono<Book> =
-        webClient.getBookViaJpaServiceById(id)
+    @CircuitBreaker(name = ALMR_TC_1, fallbackMethod = "getBookByIdJPA")
+    open fun getBookCBById(id: Long): Mono<Book> =
+        webClient.getBookViaReactiveServiceById(id)
+
+    open fun getBookByIdJPA(id: Long, exception: Exception): Mono<Book> {
+        logger.info("Current Exception -> {}", exception)
+        return webClient.getBookViaJpaServiceById(id)
+    }
 
 
     companion object {
