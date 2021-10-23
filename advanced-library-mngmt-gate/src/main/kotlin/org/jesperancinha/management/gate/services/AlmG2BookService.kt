@@ -17,7 +17,7 @@ open class AlmG2BookService(
 
     private val logger = KotlinLogging.logger {}
 
-    @CircuitBreaker(name = ALMR_TC_1, fallbackMethod = "getBookByIdJPA")
+    @CircuitBreaker(name = ALMR_TC2, fallbackMethod = "getBookByIdJPA")
     open fun getBookCBById(id: Long): Mono<Book> =
         webClientInterface.getBookViaReactiveServiceById(id)
 
@@ -27,6 +27,6 @@ open class AlmG2BookService(
     }
 
     companion object {
-        const val ALMR_TC_1 = "almr_testcase_1"
+        const val ALMR_TC2 = "almr_testcase_2"
     }
 }
