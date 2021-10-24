@@ -12,7 +12,7 @@ resilience4j.circuitbreaker:
     almr_testcase_1:
       registerHealthIndicator: true
       slidingWindowSize: 10
-      slidingWindowSizeType: count-based
+      slidingWindowType: "COUNT_BASED"
       minimumNumberOfCalls: 5
       failureRateThreshold: 50
       slowCallRateThreshold: 50
@@ -28,7 +28,7 @@ resilience4j.circuitbreaker:
     almr_testcase_2:
       registerHealthIndicator: true
       slidingWindowSize: 10
-      slidingWindowSizeType: count-based
+      slidingWindowType: "COUNT_BASED"
       minimumNumberOfCalls: 5
       failureRateThreshold: 50
       slowCallRateThreshold: 50
@@ -46,7 +46,7 @@ resilience4j.circuitbreaker:
       slowCallRateThreshold: 50f
       slowCallDurationThreshold: 100
       slidingWindowSize: 10
-      slidingWindowSizeType: count-based
+      slidingWindowType: "COUNT_BASED"
       minimumNumberOfCalls: 5
       failureRateThreshold: 50
       automaticTransitionFromOpenToHalfOpenEnabled: true
@@ -61,7 +61,7 @@ resilience4j.circuitbreaker:
     almr_testcase_4:
       registerHealthIndicator: true
       slidingWindowSize: 10
-      slidingWindowSizeType: count-based
+      slidingWindowType: "COUNT_BASED"
       minimumNumberOfCalls: 5
       failureRateThreshold: 50
       slowCallRateThreshold: 50
@@ -77,17 +77,18 @@ resilience4j.circuitbreaker:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_5:
       registerHealthIndicator: true
-      slidingWindowSize: 10
+      slidingWindowSize: 1
+      slidingWindowType: "TIME_BASED"
       minimumNumberOfCalls: 5
-      permittedNumberOfCallsInHalfOpenState: 3
-      automaticTransitionFromOpenToHalfOpenEnabled: true
-      waitDurationInOpenState: 5s
       failureRateThreshold: 50
-      eventConsumerBufferSize: 10
+      slowCallRateThreshold: 50
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 1s
       recordExceptions:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
+        - org.jesperancinha.management.gate.exception.ReactiveAccessException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_6:
