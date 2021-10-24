@@ -4,7 +4,6 @@ import com.ninjasquad.springmockk.MockkBean
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.gate.client.WebClient
@@ -24,7 +23,6 @@ import org.springframework.test.context.ActiveProfiles
 import reactor.core.publisher.Mono
 import java.lang.Thread.sleep
 import java.net.URI
-import java.time.Duration
 
 /**
  * Gate 1 Test
@@ -55,7 +53,7 @@ class AlmG1BookStartupServiceTest(
             val bookById = almG1BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
         getCBStatus().shouldBe("UP")
@@ -65,7 +63,7 @@ class AlmG1BookStartupServiceTest(
             val bookById = almG1BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
         getCBStatus().shouldBe("CIRCUIT_OPEN")
@@ -74,7 +72,7 @@ class AlmG1BookStartupServiceTest(
             val bookById = almG1BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
 
@@ -84,7 +82,7 @@ class AlmG1BookStartupServiceTest(
             val bookById = almG1BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
         sleep(1000)
@@ -93,7 +91,7 @@ class AlmG1BookStartupServiceTest(
             val bookById = almG1BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
         getCBStatus().shouldBe("CIRCUIT_HALF_OPEN")
@@ -102,7 +100,7 @@ class AlmG1BookStartupServiceTest(
             val bookById = almG1BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
 

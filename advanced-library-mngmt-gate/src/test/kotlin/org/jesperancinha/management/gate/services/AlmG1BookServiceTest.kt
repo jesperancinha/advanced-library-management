@@ -47,7 +47,7 @@ class AlmG1BookServiceTest(
         val bookById = almG1BookService.getBookById(100L)
 
         bookById.shouldNotBeNull()
-        bookById.blockOptional().ifPresent { book -> book.name.shouldBe("Solution") }
+        bookById.blockOptional().ifPresent { book -> book.title.shouldBe("Solution") }
     }
 
     @Test
@@ -60,14 +60,14 @@ class AlmG1BookServiceTest(
             val bookById = almG1BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("Solution")
+                book.title.shouldBe("Solution")
                 getCBStatus().shouldBe("UP")
             }
         }
         getCBStatus().shouldBe("UP")
 
         bookById.shouldNotBeNull()
-        bookById.blockOptional().ifPresent { book -> book.name.shouldBe("Solution") }
+        bookById.blockOptional().ifPresent { book -> book.title.shouldBe("Solution") }
     }
 
 

@@ -5,5 +5,5 @@ package org.jesperancinha.management.dtos
  */
 data class BookDto(
     val id: Long,
-    val name: String,
+    val title: String,
 )

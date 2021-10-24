@@ -53,7 +53,7 @@ class AlmG4bBookStartupServiceTest(
             val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
         getCBStatus().shouldBe("UP")
@@ -63,7 +63,7 @@ class AlmG4bBookStartupServiceTest(
             val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
         getCBStatus().shouldBe("CIRCUIT_OPEN")
@@ -72,7 +72,7 @@ class AlmG4bBookStartupServiceTest(
             val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
 
@@ -82,7 +82,7 @@ class AlmG4bBookStartupServiceTest(
             val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
         sleep(1000)
@@ -94,7 +94,7 @@ class AlmG4bBookStartupServiceTest(
             val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
         getCBStatus().shouldBe("CIRCUIT_OPEN")
@@ -103,7 +103,7 @@ class AlmG4bBookStartupServiceTest(
             val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
 

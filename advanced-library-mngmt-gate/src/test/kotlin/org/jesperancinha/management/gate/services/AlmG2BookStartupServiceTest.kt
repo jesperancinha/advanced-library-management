@@ -9,7 +9,6 @@ import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
 import org.jesperancinha.management.gate.exception.ReactiveAccessException
-import org.jesperancinha.management.gate.services.AlmG1BookService.Companion.ALMR_TC_1
 import org.jesperancinha.management.gate.services.AlmG2BookService.Companion.ALMR_TC2
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -50,7 +49,7 @@ class AlmG2BookStartupServiceTest(
             val bookById = almG2BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
         every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(Book(0L, "SolutionClosed"))
@@ -59,7 +58,7 @@ class AlmG2BookStartupServiceTest(
             val bookById = almG2BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
 
@@ -67,7 +66,7 @@ class AlmG2BookStartupServiceTest(
             val bookById = almG2BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
 
@@ -77,7 +76,7 @@ class AlmG2BookStartupServiceTest(
             val bookById = almG2BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
         sleep(1000)
@@ -86,7 +85,7 @@ class AlmG2BookStartupServiceTest(
             val bookById = almG2BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
         getCBStatus().shouldBe("CIRCUIT_HALF_OPEN")
@@ -95,7 +94,7 @@ class AlmG2BookStartupServiceTest(
             val bookById = almG2BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
 

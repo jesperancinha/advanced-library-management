@@ -5,6 +5,6 @@ package org.jesperancinha.management.domain
  */
 open class Book(
     open val id: Long,
-    open val name: String,
+    open val title: String,
 ) {
 }

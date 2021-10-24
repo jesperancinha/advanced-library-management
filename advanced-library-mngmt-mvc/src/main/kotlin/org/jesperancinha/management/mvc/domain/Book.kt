@@ -8,5 +8,5 @@ data class Book(
     @field: Id
     override val id: Long,
     @field: Column
-    override val name: String
-) : Book(id, name)
+    override val title: String
+) : Book(id, title)

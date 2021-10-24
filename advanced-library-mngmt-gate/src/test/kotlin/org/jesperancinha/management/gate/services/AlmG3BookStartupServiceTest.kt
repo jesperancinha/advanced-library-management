@@ -8,7 +8,6 @@ import kotlinx.coroutines.runBlocking
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
-import org.jesperancinha.management.gate.exception.ReactiveAccessException
 import org.jesperancinha.management.gate.services.AlmG3BookService.Companion.ALMR_TC3
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -51,7 +50,7 @@ class AlmG3BookStartupServiceTest(
             val bookById = almG3BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionSlow")
+                book.title.shouldBe("SolutionSlow")
             }
         }
         every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(Book(0L, "SolutionClosed"))
@@ -60,7 +59,7 @@ class AlmG3BookStartupServiceTest(
             val bookById = almG3BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
 
@@ -68,7 +67,7 @@ class AlmG3BookStartupServiceTest(
             val bookById = almG3BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
 
@@ -78,7 +77,7 @@ class AlmG3BookStartupServiceTest(
             val bookById = almG3BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionOpen")
+                book.title.shouldBe("SolutionOpen")
             }
         }
         sleep(1000)
@@ -87,7 +86,7 @@ class AlmG3BookStartupServiceTest(
             val bookById = almG3BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
         getCBStatus().shouldBe("CIRCUIT_HALF_OPEN")
@@ -96,7 +95,7 @@ class AlmG3BookStartupServiceTest(
             val bookById = almG3BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.title.shouldBe("SolutionClosed")
             }
         }
 
