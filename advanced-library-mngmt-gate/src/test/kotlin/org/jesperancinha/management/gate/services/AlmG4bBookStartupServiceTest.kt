@@ -4,13 +4,12 @@ import com.ninjasquad.springmockk.MockkBean
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
-import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
 import org.jesperancinha.management.gate.exception.ReactiveAccessException
-import org.jesperancinha.management.gate.services.AlmG1BookService.Companion.ALMR_TC_1
+import org.jesperancinha.management.gate.services.AlmG4BookService.Companion.ALMR_TC4
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -24,7 +23,6 @@ import org.springframework.test.context.ActiveProfiles
 import reactor.core.publisher.Mono
 import java.lang.Thread.sleep
 import java.net.URI
-import java.time.Duration
 
 /**
  * Gate 1 Test
@@ -33,9 +31,9 @@ import java.time.Duration
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ActiveProfiles("prod")
 @DirtiesContext(methodMode = DirtiesContext.MethodMode.BEFORE_METHOD, hierarchyMode = EXHAUSTIVE)
-class AlmG1BookStartupServiceTest(
+class AlmG4bBookStartupServiceTest(
     @Autowired
-    private val almG1BookService: AlmG1BookService,
+    private val almG4BookService: AlmG4BookService,
     @LocalServerPort
     private val localPort: Long,
     @Autowired
@@ -52,7 +50,7 @@ class AlmG1BookStartupServiceTest(
 
         getCBStatus().shouldBe("UP")
         repeat(4) {
-            val bookById = almG1BookService.getBookCBById(100L)
+            val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
                 book.name.shouldBe("SolutionOpen")
@@ -62,7 +60,7 @@ class AlmG1BookStartupServiceTest(
         every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(Book(0L, "SolutionClosed"))
 
         runBlocking {
-            val bookById = almG1BookService.getBookCBById(100L)
+            val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
                 book.name.shouldBe("SolutionClosed")
@@ -71,7 +69,7 @@ class AlmG1BookStartupServiceTest(
         getCBStatus().shouldBe("CIRCUIT_OPEN")
 
         repeat(3) {
-            val bookById = almG1BookService.getBookCBById(100L)
+            val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
                 book.name.shouldBe("SolutionOpen")
@@ -81,7 +79,7 @@ class AlmG1BookStartupServiceTest(
         getCBStatus().shouldBe("CIRCUIT_OPEN")
 
         repeat(40) {
-            val bookById = almG1BookService.getBookCBById(100L)
+            val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
                 book.name.shouldBe("SolutionOpen")
@@ -89,29 +87,32 @@ class AlmG1BookStartupServiceTest(
         }
         sleep(1000)
         getCBStatus().shouldBe("CIRCUIT_HALF_OPEN")
+
+        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.error(ReactiveAccessException())
+
         repeat(4) {
-            val bookById = almG1BookService.getBookCBById(100L)
+            val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.name.shouldBe("SolutionOpen")
             }
         }
-        getCBStatus().shouldBe("CIRCUIT_HALF_OPEN")
+        getCBStatus().shouldBe("CIRCUIT_OPEN")
 
         runBlocking {
-            val bookById = almG1BookService.getBookCBById(100L)
+            val bookById = almG4BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()
             bookById.blockOptional().ifPresent { book ->
-                book.name.shouldBe("SolutionClosed")
+                book.name.shouldBe("SolutionOpen")
             }
         }
 
-        getCBStatus().shouldBe("UP")
+        getCBStatus().shouldBe("CIRCUIT_OPEN")
     }
 
     private fun getCBStatus(): String {
         val forEntity =
             testRestTemplate.getForEntity<Body>(URI.create("http://localhost:$localPort/api/almg/actuator/health"))
-        return forEntity.body?.components?.circuitBreakers?.details?.get(ALMR_TC_1)?.get("status") as String
+        return forEntity.body?.components?.circuitBreakers?.details?.get(ALMR_TC4)?.get("status") as String
     }
 }

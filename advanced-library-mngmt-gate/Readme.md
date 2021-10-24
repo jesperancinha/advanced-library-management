@@ -1,5 +1,109 @@
 # Advanced Library Management Gate
 
+
+## Gate 1 test
+
+In this test we check the `registerHealthIndicator`, slidingWindowSize, `slidingWindowSizeType`, `minimumNumberOfCalls`, `automaticTransitionFromOpenToHalfOpenEnabled` and `waitDurationInOpenState`.
+
+In a separate test we also check `recordExceptions` and `ignoreExceptions` properties.
+
+```yaml
+...
+almr_testcase_1:
+  registerHealthIndicator: true
+  slidingWindowSize: 10
+  slidingWindowSizeType: count-based
+  minimumNumberOfCalls: 5
+  failureRateThreshold: 50
+  slowCallRateThreshold: 50
+  automaticTransitionFromOpenToHalfOpenEnabled: true
+  waitDurationInOpenState: 1s
+  recordExceptions:
+    - org.springframework.web.client.HttpServerErrorException
+    - java.util.concurrent.TimeoutException
+    - java.io.IOException
+    - org.jesperancinha.management.gate.exception.ReactiveAccessException
+  ignoreExceptions:
+    - org.jesperancinha.management.gate.exception.IgnoredException
+...
+```
+
+## Gate 2 test
+
+By comparing this test to test one, we just want to test the effect of the `automaticTransitionFromOpenToHalfOpenEnabled` property.
+
+```yaml
+...
+registerHealthIndicator: true
+slidingWindowSize: 10
+slidingWindowSizeType: count-based
+minimumNumberOfCalls: 5
+failureRateThreshold: 50
+slowCallRateThreshold: 50
+automaticTransitionFromOpenToHalfOpenEnabled: false
+waitDurationInOpenState: 1s
+recordExceptions:
+  - org.springframework.web.client.HttpServerErrorException
+  - java.util.concurrent.TimeoutException
+  - java.io.IOException
+  - org.jesperancinha.management.gate.exception.ReactiveAccessException
+ignoreExceptions:
+  - org.jesperancinha.management.gate.exception.IgnoredException
+...
+```
+
+## Gate 3 test
+
+In this test we check properties `slowCallDurationThreshold` and `slowCallRateThreshold`
+
+```yaml
+...
+registerHealthIndicator: true
+slowCallRateThreshold: 50f
+slowCallDurationThreshold: 100
+slidingWindowSize: 10
+slidingWindowSizeType: count-based
+minimumNumberOfCalls: 5
+failureRateThreshold: 50
+automaticTransitionFromOpenToHalfOpenEnabled: true
+waitDurationInOpenState: 1s
+recordExceptions:
+  - org.springframework.web.client.HttpServerErrorException
+  - java.util.concurrent.TimeoutException
+  - java.io.IOException
+  - org.jesperancinha.management.gate.exception.ReactiveAccessException
+ignoreExceptions:
+  - org.jesperancinha.management.gate.exception.IgnoredException
+...
+```
+
+## Gate 4 tests
+
+In comparison with Gate test we `permittedNumberOfCallsInHalfOpenState` property.
+
+```yaml
+...
+registerHealthIndicator: true
+slidingWindowSize: 10
+slidingWindowSizeType: count-based
+minimumNumberOfCalls: 5
+failureRateThreshold: 50
+slowCallRateThreshold: 50
+automaticTransitionFromOpenToHalfOpenEnabled: true
+waitDurationInOpenState: 1s
+permittedNumberOfCallsInHalfOpenState: 2
+recordExceptions:
+  - org.springframework.web.client.HttpServerErrorException
+  - java.util.concurrent.TimeoutException
+  - java.io.IOException
+  - org.jesperancinha.management.gate.exception.ReactiveAccessException
+ignoreExceptions:
+  - org.jesperancinha.management.gate.exception.IgnoredException
+...
+```
+
+
+
 ## Endpoints
 
 - [Actuator](http://localhost:8080/actuator)
