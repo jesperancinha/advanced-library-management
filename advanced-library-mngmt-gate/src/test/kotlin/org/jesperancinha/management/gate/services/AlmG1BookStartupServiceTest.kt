@@ -54,6 +54,7 @@ class AlmG1BookStartupServiceTest(
                 book.name.shouldBe("SolutionOpen")
             }
         }
+        getCBStatus().shouldBe("UP")
         every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(Book(0L, "SolutionClosed"))
 
         runBlocking {
@@ -63,6 +64,7 @@ class AlmG1BookStartupServiceTest(
                 book.name.shouldBe("SolutionClosed")
             }
         }
+        getCBStatus().shouldBe("CIRCUIT_OPEN")
 
         repeat(3) {
             val bookById = almG1BookService.getBookCBById(100L)

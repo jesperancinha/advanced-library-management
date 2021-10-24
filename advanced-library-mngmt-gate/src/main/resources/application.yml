@@ -171,6 +171,7 @@ resilience4j.retry:
         - java.util.concurrent.TimeoutException
         - java.io.IOException
       ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_2:
       maxAttempts: 3
       waitDuration: 100

@@ -5,12 +5,10 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.runBlocking
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
-import org.jesperancinha.management.gate.exception.ReactiveAccessException
-import org.jesperancinha.management.gate.services.AlmG1BookService.Companion.ALMR_TC_1
+import org.jesperancinha.management.gate.exception.IgnoredException
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -22,7 +20,6 @@ import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.annotation.DirtiesContext.HierarchyMode.EXHAUSTIVE
 import org.springframework.test.context.ActiveProfiles
 import reactor.core.publisher.Mono
-import java.lang.Thread.sleep
 import java.net.URI
 import java.time.Duration
 
@@ -42,7 +39,7 @@ class AlmG1BookServiceTest(
     lateinit var webClient: WebClient
 
     @Test
-    fun testGetBookByIdTestWhenTimeoutRetrieveSolution() {
+    fun testGetBookByIdTestWhenTimeoutRetrieveThenSolution() {
         every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(mockk<Book>())
             .delayElement(Duration.ofSeconds(5L))
         every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(Book(0L, "Solution"))
@@ -51,5 +48,32 @@ class AlmG1BookServiceTest(
 
         bookById.shouldNotBeNull()
         bookById.blockOptional().ifPresent { book -> book.name.shouldBe("Solution") }
+    }
+
+    @Test
+    fun testGetBookByIdTestWhenIgnoredExceptionThenNull() {
+        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.error(IgnoredException())
+        every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(Book(0L, "Solution"))
+
+        val bookById = almG1BookService.getBookById(100L)
+        repeat(10) {
+            val bookById = almG1BookService.getBookCBById(100L)
+            bookById.shouldNotBeNull()
+            bookById.blockOptional().ifPresent { book ->
+                book.name.shouldBe("Solution")
+                getCBStatus().shouldBe("UP")
+            }
+        }
+        getCBStatus().shouldBe("UP")
+
+        bookById.shouldNotBeNull()
+        bookById.blockOptional().ifPresent { book -> book.name.shouldBe("Solution") }
+    }
+
+
+    private fun getCBStatus(): String {
+        val forEntity =
+            testRestTemplate.getForEntity<Body>(URI.create("http://localhost:$localPort/api/almg/actuator/health"))
+        return forEntity.body?.components?.circuitBreakers?.details?.get(AlmG1BookService.ALMR_TC_1)?.get("status") as String
     }
 }
