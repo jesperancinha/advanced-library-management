@@ -8,6 +8,7 @@ import org.jesperancinha.management.gate.client.WebClientInterface
 import org.jesperancinha.management.gate.exception.IgnoredException
 import org.jesperancinha.management.gate.exception.ReactiveAccessException
 import org.springframework.stereotype.Service
+import org.springframework.web.reactive.function.client.WebClientRequestException
 import reactor.core.publisher.Mono
 import java.util.concurrent.TimeoutException
 
@@ -23,6 +24,11 @@ open class AlmG3BookService(
     @CircuitBreaker(name = ALMR_TC_3, fallbackMethod = "getBookByIdJPA")
     open fun getBookCBById(id: Long): Mono<BookDto> =
         webClientInterface.getBookViaReactiveServiceById(id)
+
+    open fun getBookByIdJPA(id: Long, exception: WebClientRequestException): Mono<BookDto> {
+        logger.info("Current Exception -> {}", exception)
+        return webClientInterface.getBookViaJpaServiceById(id)
+    }
 
     open fun getBookByIdJPA(id: Long, exception: ReactiveAccessException): Mono<BookDto> {
         logger.info("Current Exception -> {}", exception)
@@ -51,22 +57,22 @@ open class AlmG3BookService(
 
     open fun createBookByIdJPA(bookDto: BookDto, exception: ReactiveAccessException): Mono<BookDto> {
         logger.info("Current Exception -> {}", exception)
-        return webClientInterface.sendBookViaReactiveService(bookDto)
+        return webClientInterface.sendViaJpaServiceBook(bookDto)
     }
 
     open fun createBookByIdJPA(bookDto: BookDto, exception: CallNotPermittedException): Mono<BookDto> {
         logger.info("Current Exception -> {}", exception)
-        return webClientInterface.sendBookViaReactiveService(bookDto)
+        return webClientInterface.sendViaJpaServiceBook(bookDto)
     }
 
     open fun createBookByIdJPA(bookDto: BookDto, exception: TimeoutException): Mono<BookDto> {
         logger.info("Current Exception -> {}", exception)
-        return webClientInterface.sendBookViaReactiveService(bookDto)
+        return webClientInterface.sendViaJpaServiceBook(bookDto)
     }
 
     open fun createBookByIdJPA(bookDto: BookDto, exception: IgnoredException): Mono<BookDto> {
         logger.info("Current Exception -> {}", exception)
-        return webClientInterface.sendBookViaReactiveService(bookDto)
+        return webClientInterface.sendViaJpaServiceBook(bookDto)
     }
 
     companion object {

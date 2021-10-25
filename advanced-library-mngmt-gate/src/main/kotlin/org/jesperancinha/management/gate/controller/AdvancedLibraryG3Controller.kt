@@ -17,5 +17,5 @@ class AdvancedLibraryG3Controller(
     fun getBookCBById(@PathVariable id: Long): Mono<BookDto> = almG3BookService.getBookCBById(id)
 
     @PostMapping
-    fun createBook(@RequestBody bookDto: BookDto) : Mono<BookDto> = almG3BookService.createBook(bookDto)
+    fun createBook(@RequestBody bookDto: BookDto): Mono<BookDto> = almG3BookService.createBook(bookDto)
 }

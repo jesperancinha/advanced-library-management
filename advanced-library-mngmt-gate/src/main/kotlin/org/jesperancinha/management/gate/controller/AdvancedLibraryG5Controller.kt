@@ -1,7 +1,6 @@
 package org.jesperancinha.management.gate.controller
 
 import org.jesperancinha.management.dtos.BookDto
-import org.jesperancinha.management.gate.services.AlmG1BookService
 import org.jesperancinha.management.gate.services.AlmG5BookService
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono
@@ -18,5 +17,5 @@ class AdvancedLibraryG5Controller(
     fun getBookCBById(@PathVariable id: Long): Mono<BookDto> = almG5BookService.getBookCBById(id)
 
     @PostMapping
-    fun createBook(@RequestBody bookDto: BookDto) : Mono<BookDto> = almG5BookService.createBook(bookDto)
+    fun createBook(@RequestBody bookDto: BookDto): Mono<BookDto> = almG5BookService.createBook(bookDto)
 }

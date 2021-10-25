@@ -1,6 +1,7 @@
 package org.jesperancinha.management.mvc.service
 
 import org.jesperancinha.management.dtos.BookDto
+import org.jesperancinha.management.dtos.SourceType.MVC
 import org.jesperancinha.management.mvc.domain.Book
 import org.jesperancinha.management.mvc.repository.BookRepository
 import org.jesperancinha.management.mvc.repository.findOne
@@ -19,7 +20,7 @@ class AdvancedLibraryBookService(
     }
 
     fun save(book: Book): BookDto {
-        return bookRepository.save(book).toDto
+        return bookRepository.save(book.copy(source = MVC)).toDto
     }
 }
 
@@ -27,6 +28,7 @@ private val Book.toDto: BookDto
     get() {
         return BookDto(
             id = id,
-            title = title
+            title = title,
+            source = source
         )
     }

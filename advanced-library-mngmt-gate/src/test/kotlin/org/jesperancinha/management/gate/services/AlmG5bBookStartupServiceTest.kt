@@ -89,7 +89,7 @@ class AlmG5bBookStartupServiceTest(
             }
         }
         sleep(1000)
-        getCBStatus() shouldBeIn listOf("UP", "CIRCUIT_OPEN")
+        getCBStatus() shouldBeIn listOf("UP", "CIRCUIT_OPEN", "CIRCUIT_HALF_OPEN")
         repeat(4) {
             val bookById = almG5BookService.getBookCBById(100L)
             bookById.shouldNotBeNull()

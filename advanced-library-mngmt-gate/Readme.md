@@ -1,9 +1,47 @@
 # Advanced Library Management Gate
 
+## Test Endpoints Examples
+
+- [http://localhost:8080/api/almg/books/g1/1](http://localhost:8080/api/almg/books/g1/1)
+- [http://localhost:8080/api/almg/books/g2/1](http://localhost:8080/api/almg/books/g2/1)
+- [http://localhost:8080/api/almg/books/g3/1](http://localhost:8080/api/almg/books/g3/1)
+- [http://localhost:8080/api/almg/books/g4/1](http://localhost:8080/api/almg/books/g4/1)
+- [http://localhost:8080/api/almg/books/g5/1](http://localhost:8080/api/almg/books/g5/1)
+
+## Sending books
+
+```shell
+curl -X POST -H "Content-Type: application/json" --data '{"id": 1,
+    "title": "My Father''s Book",
+    "authors": [
+      "Urs Widmer",
+      "Donal McLaughlin"
+    ],
+    "year": 2015,
+    "month": 1,
+    "publisher": "Seagull Books"
+  }' http://localhost:8080/api/almg/books/g1
+```
+
+```shell
+curl -X POST -H "Content-Type: application/json" --data '{
+    "id": 2,
+    "title": "The Old Man and the Bench",
+    "authors": [
+      "Urs Allemann",
+      "Patrick Greaneyz"
+    ],
+    "year": 2015,
+    "month": 5,
+    "day": 26,
+    "publisher": "Dalkey Archive Press"
+  }' http://localhost:8080/api/almg/books/g1
+```
 
 ## Gate 1 test
 
-In this test we check the `registerHealthIndicator`, slidingWindowSize, `slidingWindowSizeType`, `minimumNumberOfCalls`, `automaticTransitionFromOpenToHalfOpenEnabled` and `waitDurationInOpenState`.
+In this test we check the `registerHealthIndicator`, slidingWindowSize, `slidingWindowSizeType`, `minimumNumberOfCalls`
+, `automaticTransitionFromOpenToHalfOpenEnabled` and `waitDurationInOpenState`.
 
 In a separate test we also check `recordExceptions` and `ignoreExceptions` properties.
 
@@ -18,18 +56,19 @@ slowCallRateThreshold: 50
 automaticTransitionFromOpenToHalfOpenEnabled: true
 waitDurationInOpenState: 1s
 recordExceptions:
-		- org.springframework.web.client.HttpServerErrorException
-		- java.util.concurrent.TimeoutException
-		- java.io.IOException
-		- org.jesperancinha.management.gate.exception.ReactiveAccessException
+  - org.springframework.web.client.HttpServerErrorException
+  - java.util.concurrent.TimeoutException
+  - java.io.IOException
+  - org.jesperancinha.management.gate.exception.ReactiveAccessException
 ignoreExceptions:
-		- org.jesperancinha.management.gate.exception.IgnoredException
+  - org.jesperancinha.management.gate.exception.IgnoredException
 ...
 ```
 
 ## Gate 2 test
 
-By comparing this test to test one, we just want to test the effect of the `automaticTransitionFromOpenToHalfOpenEnabled` property.
+By comparing this test to test one, we just want to test the effect of
+the `automaticTransitionFromOpenToHalfOpenEnabled` property.
 
 ```yaml
 ...
@@ -115,16 +154,13 @@ slowCallRateThreshold: 50
 automaticTransitionFromOpenToHalfOpenEnabled: true
 waitDurationInOpenState: 1s
 recordExceptions:
-		- org.springframework.web.client.HttpServerErrorException
-		- java.util.concurrent.TimeoutException
-		- java.io.IOException
-		- org.jesperancinha.management.gate.exception.ReactiveAccessException
+  - org.springframework.web.client.HttpServerErrorException
+  - java.util.concurrent.TimeoutException
+  - java.io.IOException
+  - org.jesperancinha.management.gate.exception.ReactiveAccessException
 ignoreExceptions:
-		- org.jesperancinha.management.gate.exception.IgnoredException
+  - org.jesperancinha.management.gate.exception.IgnoredException
 ```
-
-
-
 
 ## Endpoints
 

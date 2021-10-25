@@ -9,7 +9,7 @@ open class AdvancedLibraryGateLauncher {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-           SpringApplication.run(AdvancedLibraryGateLauncher::class.java, *args)
+            SpringApplication.run(AdvancedLibraryGateLauncher::class.java, *args)
         }
     }
 }

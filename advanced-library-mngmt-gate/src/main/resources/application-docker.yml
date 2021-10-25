@@ -1,0 +1,3 @@
+org.jesperancinha.management:
+  reactive.host: jofisaes_advanced_library_mngmt_reactive
+  mvc.host: jofisaes_advanced_library_mngmt_mvc

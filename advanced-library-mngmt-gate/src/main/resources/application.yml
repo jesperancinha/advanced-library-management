@@ -1,4 +1,7 @@
 server.servlet.context-path: /api/almg
+org.jesperancinha.management:
+  reactive.host: localhost
+  mvc.host: localhost
 
 management:
   endpoints.web.exposure.include: "*"
@@ -23,6 +26,7 @@ resilience4j.circuitbreaker:
         - java.util.concurrent.TimeoutException
         - java.io.IOException
         - org.jesperancinha.management.gate.exception.ReactiveAccessException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_2:

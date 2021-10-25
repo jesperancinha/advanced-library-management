@@ -1,6 +1,7 @@
 package org.jesperancinha.management.reactive.service
 
 import org.jesperancinha.management.dtos.BookDto
+import org.jesperancinha.management.dtos.SourceType.REACTIVE
 import org.jesperancinha.management.reactive.domain.Book
 import org.jesperancinha.management.reactive.repository.BookRepository
 import org.springframework.stereotype.Service
@@ -19,7 +20,7 @@ class AdvancedLibraryBookService(
     }
 
     fun save(book: Book): Mono<BookDto> {
-        return bookRepository.save(book).map { it.toDto }
+        return bookRepository.save(book.copy(source = REACTIVE)).map { it.toDto }
     }
 }
 
@@ -27,6 +28,7 @@ private val Book.toDto: BookDto
     get() {
         return BookDto(
             id = id,
-            title = title
+            title = title,
+            source = source
         )
     }

@@ -2,7 +2,7 @@ package org.jesperancinha.management.mvc.domain
 
 import org.hibernate.Hibernate
 import org.jesperancinha.management.domain.Book
-import java.util.*
+import org.jesperancinha.management.dtos.SourceType
 import java.util.Objects.hash
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -20,20 +20,22 @@ data class Book(
     @field: Id
     override val id: Long,
     @field: Column
-    override val title: String
-) : Book(id, title) {
+    override val title: String,
+    @field: Column
+    override val source: SourceType
+) : Book(id, title, source) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false
         other as Book
 
-        return id == other.id
+        return id != null && id == other.id
     }
 
-    override fun hashCode(): Int = hash(id, title)
+    override fun hashCode(): Int = hash(id, title, source)
 
     @Override
     override fun toString(): String {
-        return this::class.simpleName + "(id = $id , title = $title )"
+        return this::class.simpleName + "(id = $id , id = $id , title = $title , source = $source , title = $title , source = $source )"
     }
 }

@@ -7,5 +7,5 @@ data class Body(
     val status: String?,
     val components: Components?
 ) {
-    constructor(): this(null, null)
+    constructor() : this(null, null)
 }
