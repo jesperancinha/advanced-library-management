@@ -13,7 +13,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_MULTIPLE_DATABASES=almg
+      - POSTGRES_MULTIPLE_DATABASES=alm
     ports:
       - "5432:5432"
     networks:
@@ -27,6 +27,8 @@ services:
     ports:
       - 8080:8080
     restart: on-failure
+    depends_on:
+      - advanced_library_mngmt_postgres
     networks:
       - mngmt
 
@@ -38,6 +40,8 @@ services:
     ports:
       - 8081:8081
     restart: on-failure
+    depends_on:
+      - advanced_library_mngmt_postgres
     networks:
       - mngmt
 
@@ -49,6 +53,8 @@ services:
     ports:
       - 8082:8082
     restart: on-failure
+    depends_on:
+      - advanced_library_mngmt_postgres
     networks:
       - mngmt
 
