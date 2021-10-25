@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono
 @RestController
 @RequestMapping("/books/g1")
 class AdvancedLibraryG1Controller(
-    private val almG1BookService: AlmG1BookService,
+    private val almG1BookService: AlmG1BookService
 ) {
     @GetMapping("{id}")
     fun getBookCBById(@PathVariable id: Long): Mono<BookDto> = almG1BookService.getBookCBById(id)
