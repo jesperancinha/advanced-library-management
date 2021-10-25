@@ -24,6 +24,12 @@ docker-local:
 	docker-compose up -d --build --remove-orphans
 docker-clean-build-start: docker-clean b docker
 docker-clean-start: docker-clean docker
+docker-stop-spring:
+	docker stop advanced_library_mngmt_reactive
+	docker stop advanced_library_mngmt_mvc
+docker-start-spring:
+	docker start advanced_library_mngmt_reactive
+	docker start advanced_library_mngmt_mvc
 stop:
 	docker-compose down --remove-orphans
 prune-all: stop

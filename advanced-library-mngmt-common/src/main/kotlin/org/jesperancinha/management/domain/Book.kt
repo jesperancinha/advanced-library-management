@@ -7,4 +7,5 @@ open class Book(
     open val id: Long,
     open val title: String,
 ) {
+    constructor() : this(1L, "")
 }

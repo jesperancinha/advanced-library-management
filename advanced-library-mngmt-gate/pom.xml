@@ -134,6 +134,13 @@
                 <configuration>
                     <mainClass>org.jesperancinha.management.AdvancedLibraryGateLauncher</mainClass>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>

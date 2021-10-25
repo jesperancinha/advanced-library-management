@@ -97,11 +97,6 @@
                 <version>${kotlin.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-maven-noarg</artifactId>
-                <version>${kotlin.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.jetbrains.kotlinx</groupId>
                 <artifactId>kotlinx-coroutines-reactor</artifactId>
                 <version>${kotlinx-coroutines-reactor.version}</version>
@@ -145,6 +140,11 @@
                 <groupId>io.github.resilience4j</groupId>
                 <artifactId>resilience4j-timelimiter</artifactId>
                 <version>${resilience4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-noarg</artifactId>
+                <version>${kotlin.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jetbrains.kotlin</groupId>

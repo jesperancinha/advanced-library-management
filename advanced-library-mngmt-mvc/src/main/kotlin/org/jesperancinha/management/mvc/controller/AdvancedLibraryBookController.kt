@@ -1,4 +1,4 @@
-package org.jesperancinha.management.reactive.controller
+package org.jesperancinha.management.mvc.controller
 
 import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.mvc.domain.Book

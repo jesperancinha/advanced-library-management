@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono
 @RestController
 @RequestMapping("books")
 class AdvancedLibraryBookController(
-    val advancedLibraryBookService: AdvancedLibraryBookService
+    private val advancedLibraryBookService: AdvancedLibraryBookService
 ) {
 
     @PostMapping("/create")

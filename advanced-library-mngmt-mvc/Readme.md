@@ -1,5 +1,9 @@
 # org.jesperancinha.management advanced-library-mngmt-mvc
 
+## Test Endpoints
+
+- http://localhost:8082/api/alm/mvc/books/1
+
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)
