@@ -9,7 +9,7 @@ import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
 import org.jesperancinha.management.gate.exception.ReactiveAccessException
-import org.jesperancinha.management.gate.services.AlmG4BookService.Companion.ALMR_TC4
+import org.jesperancinha.management.gate.services.AlmG4BookService.Companion.ALMR_TC_4
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -113,6 +113,6 @@ class AlmG4bBookStartupServiceTest(
     private fun getCBStatus(): String {
         val forEntity =
             testRestTemplate.getForEntity<Body>(URI.create("http://localhost:$localPort/api/almg/actuator/health"))
-        return forEntity.body?.components?.circuitBreakers?.details?.get(ALMR_TC4)?.get("status") as String
+        return forEntity.body?.components?.circuitBreakers?.details?.get(ALMR_TC_4)?.get("status") as String
     }
 }

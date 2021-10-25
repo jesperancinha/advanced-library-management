@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
-import org.jesperancinha.management.gate.services.AlmG3BookService.Companion.ALMR_TC3
+import org.jesperancinha.management.gate.services.AlmG3BookService.Companion.ALMR_TC_3
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -107,6 +107,6 @@ class AlmG3BookStartupServiceTest(
     private fun getCBStatus(): String {
         val forEntity =
             testRestTemplate.getForEntity<Body>(URI.create("http://localhost:$localPort/api/almg/actuator/health"))
-        return forEntity.body?.components?.circuitBreakers?.details?.get(ALMR_TC3)?.get("status") as String
+        return forEntity.body?.components?.circuitBreakers?.details?.get(ALMR_TC_3)?.get("status") as String
     }
 }
