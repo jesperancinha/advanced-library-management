@@ -13,7 +13,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_MULTIPLE_DATABASES=
+      - POSTGRES_MULTIPLE_DATABASES=almg
     ports:
       - "5432:5432"
     networks:
@@ -30,9 +30,9 @@ services:
     networks:
       - mngmt
 
-  advanced_library_mngmt_gate:
-    hostname: advanced_library_mngmt_gate
-    container_name: advanced_library_mngmt_gate
+  advanced_library_mngmt_reactive:
+    hostname: advanced_library_mngmt_reactive
+    container_name: advanced_library_mngmt_reactive
     build:
       context: advanced-library-mngmt-reactive/.
     ports:
@@ -41,9 +41,9 @@ services:
     networks:
       - mngmt
 
-  advanced_library_mngmt_gate:
-    hostname: advanced_library_mngmt_gate
-    container_name: advanced_library_mngmt_gate
+  advanced_library_mngmt_mvc:
+    hostname: advanced_library_mngmt_mvc
+    container_name: advanced_library_mngmt_mvc
     build:
       context: advanced-library-mngmt-mvc/.
     ports:

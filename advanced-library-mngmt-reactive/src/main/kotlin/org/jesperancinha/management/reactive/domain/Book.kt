@@ -4,7 +4,7 @@ import org.jesperancinha.management.domain.Book
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 
-data class Book(
+data class  Book(
     @field: Id
     override val id: Long,
     @field: Column

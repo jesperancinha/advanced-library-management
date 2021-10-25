@@ -17,6 +17,10 @@ class AdvancedLibraryBookService(
     fun getBookById(id: Long): Mono<BookDto> {
         return bookRepository.findById(id).map { it.toDto }
     }
+
+    fun save(book: Book): Mono<BookDto> {
+        return bookRepository.save(book).map { it.toDto }
+    }
 }
 
 private val Book.toDto: BookDto
