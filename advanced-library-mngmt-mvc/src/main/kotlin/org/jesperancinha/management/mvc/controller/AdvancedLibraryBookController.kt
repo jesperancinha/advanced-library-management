@@ -2,7 +2,7 @@ package org.jesperancinha.management.reactive.controller
 
 import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.mvc.domain.Book
-import org.jesperancinha.management.reactive.service.AdvancedLibraryBookService
+import org.jesperancinha.management.mvc.service.AdvancedLibraryBookService
 import org.springframework.web.bind.annotation.*
 
 /**

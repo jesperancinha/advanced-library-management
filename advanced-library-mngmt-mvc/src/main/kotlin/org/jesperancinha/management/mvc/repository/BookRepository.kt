@@ -1,4 +1,4 @@
-package org.jesperancinha.management.reactive.repository
+package org.jesperancinha.management.mvc.repository
 
 import org.jesperancinha.management.mvc.domain.Book
 import org.springframework.data.jpa.repository.JpaRepository

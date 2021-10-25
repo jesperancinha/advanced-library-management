@@ -1,5 +1,5 @@
 package org.jesperancinha.management
 
-class HelloTest {
+class AdvancedNonReactiveLibraryTest {
 
 }

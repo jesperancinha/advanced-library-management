@@ -1,9 +1,9 @@
-package org.jesperancinha.management.reactive.service
+package org.jesperancinha.management.mvc.service
 
 import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.mvc.domain.Book
-import org.jesperancinha.management.reactive.repository.BookRepository
-import org.jesperancinha.management.reactive.repository.findOne
+import org.jesperancinha.management.mvc.repository.BookRepository
+import org.jesperancinha.management.mvc.repository.findOne
 import org.springframework.stereotype.Service
 
 /**
