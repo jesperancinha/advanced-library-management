@@ -67,7 +67,7 @@
                     <pluginOptions>
                         <!--                        <option>no-arg:annotation=com.my.Annotation</option>-->
                         <!-- Call instance initializers in the synthetic constructor -->
-                         <option>no-arg:invokeInitializers=true</option>
+                        <option>no-arg:invokeInitializers=true</option>
                     </pluginOptions>
                 </configuration>
                 <dependencies>

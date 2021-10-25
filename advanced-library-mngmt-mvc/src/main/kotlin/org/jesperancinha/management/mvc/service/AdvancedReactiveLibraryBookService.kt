@@ -19,10 +19,18 @@ class AdvancedLibraryBookService(
         return bookRepository.findOne(id)?.toDto
     }
 
-    fun save(book: Book): BookDto {
-        return bookRepository.save(book.copy(source = MVC)).toDto
+    fun save(book: BookDto): BookDto {
+        return bookRepository.saveAndFlush(book.toData).toDto
     }
 }
+
+private val BookDto.toData: Book
+    get() {
+        return Book(
+            title = title,
+            source = MVC
+        )
+    }
 
 private val Book.toDto: BookDto
     get() {

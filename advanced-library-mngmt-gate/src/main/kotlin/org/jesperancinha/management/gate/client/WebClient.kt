@@ -7,6 +7,7 @@ import org.springframework.http.HttpHeaders.CONTENT_TYPE
 import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
+import org.springframework.web.reactive.function.client.WebClient.create
 import org.springframework.web.reactive.function.client.bodyToMono
 import reactor.core.publisher.Mono
 
@@ -20,8 +21,8 @@ class WebClient(
 ) : WebClientInterface {
 
 
-    private val webClientReactive: WebClient = WebClient.create("http://$reactiveHost:8081")
-    private val webClientMvc: WebClient = WebClient.create("http://$mvcHost:8082")
+    private val webClientReactive: WebClient = create("http://$reactiveHost:8081")
+    private val webClientMvc: WebClient = create("http://$mvcHost:8082")
 
     override fun getBookViaReactiveServiceById(id: Long): Mono<BookDto> = webClientReactive.get()
         .uri("/api/alm/reactive/books/$id").retrieve().bodyToMono()

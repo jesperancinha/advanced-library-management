@@ -1,7 +1,6 @@
 package org.jesperancinha.management.reactive.controller
 
 import org.jesperancinha.management.dtos.BookDto
-import org.jesperancinha.management.reactive.domain.Book
 import org.jesperancinha.management.reactive.service.AdvancedLibraryBookService
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono
@@ -16,7 +15,12 @@ class AdvancedLibraryBookController(
 ) {
 
     @PostMapping("/create")
-    fun create(@RequestBody book: Book): Mono<BookDto> {
+    fun create(@RequestBody book: BookDto): Mono<BookDto> {
+        return advancedLibraryBookService.create(book)
+    }
+
+    @PutMapping("/update")
+    fun update(@RequestBody book: BookDto): Mono<BookDto> {
         return advancedLibraryBookService.save(book)
     }
 

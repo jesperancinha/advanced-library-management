@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
  */
 data class BookDto(
     @JsonProperty("id")
-    val id: Long,
+    val id: Long?,
     @JsonProperty("title")
     val title: String,
     @JsonProperty("source")
-    val source: SourceType
+    val source: SourceType? = null
 )

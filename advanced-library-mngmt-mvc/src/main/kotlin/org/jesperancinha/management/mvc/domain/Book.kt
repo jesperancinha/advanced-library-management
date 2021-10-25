@@ -4,10 +4,8 @@ import org.hibernate.Hibernate
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.dtos.SourceType
 import java.util.Objects.hash
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
+import javax.persistence.EnumType.STRING
 
 /**
  * In JetBrains recommendations:
@@ -18,10 +16,12 @@ import javax.persistence.Table
 @Entity
 data class Book(
     @field: Id
-    override val id: Long,
+    @field: GeneratedValue(strategy = GenerationType.AUTO)
+    override val id: Long? = null,
     @field: Column
     override val title: String,
     @field: Column
+    @field: Enumerated(STRING)
     override val source: SourceType
 ) : Book(id, title, source) {
     override fun equals(other: Any?): Boolean {

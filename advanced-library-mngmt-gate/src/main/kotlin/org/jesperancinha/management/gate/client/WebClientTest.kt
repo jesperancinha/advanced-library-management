@@ -6,6 +6,8 @@ import org.jesperancinha.management.gate.exception.ReactiveAccessException
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
+import reactor.core.publisher.Mono.error
+import reactor.core.publisher.Mono.just
 import java.time.Duration
 
 @Component
@@ -14,20 +16,20 @@ class WebClientTest : WebClientInterface {
     override fun getBookViaReactiveServiceById(id: Long): Mono<BookDto> =
         mockRandomResponse()
 
-    override fun getBookViaJpaServiceById(id: Long): Mono<BookDto> = Mono.just(BookDto(1, "JPA_Test"))
+    override fun getBookViaJpaServiceById(id: Long): Mono<BookDto> = just(BookDto(1, "JPA_Test"))
 
     override fun sendBookViaReactiveService(bookDto: BookDto): Mono<BookDto> = mockRandomResponse()
 
-    override fun sendViaJpaServiceBook(bookDto: BookDto): Mono<BookDto> = Mono.just(BookDto(1, "JPA_Test"))
+    override fun sendViaJpaServiceBook(bookDto: BookDto): Mono<BookDto> = just(BookDto(1, "JPA_Test"))
 
     private fun mockRandomResponse() = listOf<Mono<BookDto>>(
-        Mono.error(ReactiveAccessException()),
-        Mono.error(ReactiveAccessException()),
-        Mono.error(ReactiveAccessException()),
-        Mono.error(ReactiveAccessException()),
-        Mono.error(NotConfiguredException()),
-        Mono.just(BookDto(1, "REACTIVE_Test")),
-        Mono.just(BookDto(1, "REACTIVE_Test")).delaySubscription(Duration.ofSeconds(1)),
-        Mono.just(BookDto(1, "REACTIVE_Test"))
+        error(ReactiveAccessException()),
+        error(ReactiveAccessException()),
+        error(ReactiveAccessException()),
+        error(ReactiveAccessException()),
+        error(NotConfiguredException()),
+        just(BookDto(1, "REACTIVE_Test")),
+        just(BookDto(1, "REACTIVE_Test")).delaySubscription(Duration.ofSeconds(1)),
+        just(BookDto(1, "REACTIVE_Test"))
     ).random()
 }

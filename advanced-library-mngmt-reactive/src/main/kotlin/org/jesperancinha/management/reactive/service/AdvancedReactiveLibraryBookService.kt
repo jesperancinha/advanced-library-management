@@ -19,10 +19,26 @@ class AdvancedLibraryBookService(
         return bookRepository.findById(id).map { it.toDto }
     }
 
-    fun save(book: Book): Mono<BookDto> {
-        return bookRepository.save(book.copy(source = REACTIVE)).map { it.toDto }
+    fun save(bookDto: BookDto): Mono<BookDto> {
+        return bookRepository.save(bookDto.toData)
+            .doOnError { bookRepository.save(bookDto.toData.copy(newField = true)).map { it.toDto }.block() }
+            .map { it.toDto }
+    }
+
+    fun create(bookDto: BookDto): Mono<BookDto> {
+        return bookRepository.save(bookDto.toData.copy(newField = true)).map { it.toDto }
     }
 }
+
+private val BookDto.toData: Book
+    get() {
+        return Book(
+            id = id,
+            title = title,
+            source = REACTIVE,
+            newField = false
+        )
+    }
 
 private val Book.toDto: BookDto
     get() {

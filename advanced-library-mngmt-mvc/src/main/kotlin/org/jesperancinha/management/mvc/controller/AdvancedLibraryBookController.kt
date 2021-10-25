@@ -1,7 +1,6 @@
 package org.jesperancinha.management.mvc.controller
 
 import org.jesperancinha.management.dtos.BookDto
-import org.jesperancinha.management.mvc.domain.Book
 import org.jesperancinha.management.mvc.service.AdvancedLibraryBookService
 import org.springframework.web.bind.annotation.*
 
@@ -15,7 +14,7 @@ class AdvancedLibraryBookController(
 ) {
 
     @PostMapping("/create")
-    fun create(@RequestBody book: Book): BookDto {
+    fun create(@RequestBody book: BookDto): BookDto {
         return advancedLibraryBookService.save(book)
     }
 
