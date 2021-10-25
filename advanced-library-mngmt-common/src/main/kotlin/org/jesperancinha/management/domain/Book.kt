@@ -9,6 +9,7 @@ open class Book(
     open val id: Long?,
     open val title: String,
     open val source: SourceType,
+    open val timestamp: Long,
 ) {
-    constructor() : this(1L, "", SourceType.REACTIVE)
+    constructor() : this(1L, "", SourceType.REACTIVE, 0)
 }

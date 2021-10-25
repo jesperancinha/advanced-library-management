@@ -3,6 +3,8 @@ package org.jesperancinha.management.mvc.domain
 import org.hibernate.Hibernate
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.dtos.SourceType
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 import java.util.Objects.hash
 import javax.persistence.*
 import javax.persistence.EnumType.STRING
@@ -22,8 +24,10 @@ data class Book(
     override val title: String,
     @field: Column
     @field: Enumerated(STRING)
-    override val source: SourceType
-) : Book(id, title, source) {
+    override val source: SourceType,
+    @field: Column
+    override val timestamp: Long = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC)
+) : Book(id, title, source, timestamp) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false

@@ -27,6 +27,7 @@ class AdvancedLibraryBookService(
 private val BookDto.toData: Book
     get() {
         return Book(
+            id = id,
             title = title,
             source = MVC
         )

@@ -97,7 +97,7 @@ class AlmG5bBookStartupServiceTest(
                 book.title.shouldBe("SolutionClosed")
             }
         }
-        getCBStatus().shouldBe("UP")
+        getCBStatus() shouldBeIn listOf("UP", "CIRCUIT_HALF_OPEN")
 
         runBlocking {
             val bookById = almG5BookService.getBookCBById(100L)
