@@ -5,7 +5,7 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import kotlinx.coroutines.runBlocking
-import org.jesperancinha.management.domain.Book
+import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
 import org.jesperancinha.management.gate.exception.ReactiveAccessException
@@ -46,7 +46,7 @@ class AlmG1BookStartupServiceTest(
     @Test
     fun testGetBookCBByIdTestWhenTimeoutRetrieveSolution() {
         every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.error(ReactiveAccessException())
-        every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(Book(0L, "SolutionOpen"))
+        every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(BookDto(0L, "SolutionOpen"))
 
         getCBStatus().shouldBe("UP")
         repeat(4) {
@@ -57,7 +57,7 @@ class AlmG1BookStartupServiceTest(
             }
         }
         getCBStatus().shouldBe("UP")
-        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(Book(0L, "SolutionClosed"))
+        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(BookDto(0L, "SolutionClosed"))
 
         runBlocking {
             val bookById = almG1BookService.getBookCBById(100L)

@@ -5,7 +5,7 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
-import org.jesperancinha.management.domain.Book
+import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
 import org.jesperancinha.management.gate.exception.IgnoredException
@@ -40,9 +40,9 @@ class AlmG1BookServiceTest(
 
     @Test
     fun testGetBookByIdTestWhenTimeoutRetrieveThenSolution() {
-        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(mockk<Book>())
+        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(mockk<BookDto>())
             .delayElement(Duration.ofSeconds(5L))
-        every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(Book(0L, "Solution"))
+        every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(BookDto(0L, "Solution"))
 
         val bookById = almG1BookService.getBookById(100L)
 
@@ -53,7 +53,7 @@ class AlmG1BookServiceTest(
     @Test
     fun testGetBookByIdTestWhenIgnoredExceptionThenNull() {
         every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.error(IgnoredException())
-        every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(Book(0L, "Solution"))
+        every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(BookDto(0L, "Solution"))
 
         val bookById = almG1BookService.getBookById(100L)
         repeat(10) {
@@ -74,6 +74,7 @@ class AlmG1BookServiceTest(
     private fun getCBStatus(): String {
         val forEntity =
             testRestTemplate.getForEntity<Body>(URI.create("http://localhost:$localPort/api/almg/actuator/health"))
-        return forEntity.body?.components?.circuitBreakers?.details?.get(AlmG1BookService.ALMR_TC_1)?.get("status") as String
+        return forEntity.body?.components?.circuitBreakers?.details?.get(AlmG1BookService.ALMR_TC_1)
+            ?.get("status") as String
     }
 }
