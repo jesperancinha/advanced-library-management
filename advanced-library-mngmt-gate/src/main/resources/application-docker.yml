@@ -1,3 +1,427 @@
 org.jesperancinha.management:
   reactive.host: jofisaes_advanced_library_mngmt_reactive
   mvc.host: jofisaes_advanced_library_mngmt_mvc
+
+
+resilience4j.circuitbreaker:
+  instances:
+    almr_testcase_1:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      slidingWindowType: "COUNT_BASED"
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      slowCallRateThreshold: 50
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 10s
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.jesperancinha.management.gate.exception.ReactiveAccessException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_2:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      slidingWindowType: "COUNT_BASED"
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      slowCallRateThreshold: 50
+      automaticTransitionFromOpenToHalfOpenEnabled: false
+      waitDurationInOpenState: 10s
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.jesperancinha.management.gate.exception.ReactiveAccessException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_3:
+      registerHealthIndicator: true
+      slowCallRateThreshold: 50f
+      slowCallDurationThreshold: 100
+      slidingWindowSize: 10
+      slidingWindowType: "COUNT_BASED"
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 10s
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.jesperancinha.management.gate.exception.ReactiveAccessException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_4:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      slidingWindowType: "COUNT_BASED"
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      slowCallRateThreshold: 50
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 10s
+      permittedNumberOfCallsInHalfOpenState: 2
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.jesperancinha.management.gate.exception.ReactiveAccessException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_5:
+      registerHealthIndicator: true
+      slidingWindowSize: 1
+      slidingWindowType: "TIME_BASED"
+      minimumNumberOfCalls: 5
+      failureRateThreshold: 50
+      slowCallRateThreshold: 50
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 10s
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.jesperancinha.management.gate.exception.ReactiveAccessException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_6:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_7:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_8:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_9:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_10:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+resilience4j.retry:
+  instances:
+    almr_testcase_1:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+    almr_testcase_2:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+    almr_testcase_3:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+    almr_testcase_4:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+    almr_testcase_5:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+    almr_testcase_6:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+    almr_testcase_7:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+    almr_testcase_8:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+    almr_testcase_9:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+    almr_testcase_10:
+      maxAttempts: 3
+      waitDuration: 100
+      retryExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.util.concurrent.TimeoutException
+        - java.io.IOException
+      ignoreExceptions:
+        - org.jesperancinha.management.gate.exception.IgnoredException
+resilience4j.bulkhead:
+  instances:
+    almr_testcase_1:
+      maxConcurrentCalls: 10
+
+    almr_testcase_2:
+      maxConcurrentCalls: 10
+
+    almr_testcase_3:
+      maxConcurrentCalls: 10
+
+    almr_testcase_4:
+      maxConcurrentCalls: 10
+
+    almr_testcase_5:
+      maxConcurrentCalls: 10
+
+    almr_testcase_6:
+      maxConcurrentCalls: 10
+
+    almr_testcase_7:
+      maxConcurrentCalls: 10
+
+    almr_testcase_8:
+      maxConcurrentCalls: 10
+
+    almr_testcase_9:
+      maxConcurrentCalls: 10
+
+    almr_testcase_10:
+      maxConcurrentCalls: 10
+
+resilience4j.thread-pool-bulkhead:
+  instances:
+    almr_testcase_1:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_2:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_3:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_4:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_5:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_6:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_7:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_8:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_9:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+    almr_testcase_10:
+      maxThreadPoolSize: 4
+      coreThreadPoolSize: 2
+      queueCapacity: 2
+
+resilience4j.ratelimiter:
+  instances:
+    almr_testcase_1:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_2:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_3:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_4:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_5:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_6:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_7:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_8:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_9:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+    almr_testcase_10:
+      registerHealthIndicator: false
+      limitForPeriod: 10
+      limitRefreshPeriod: 1s
+      timeoutDuration: 0
+      eventConsumerBufferSize: 100
+
+resilience4j.timelimiter:
+  instances:
+    almr_testcase_1:
+      cancelRunningFuture: false
+      timeoutDuration: 100ms
+    almr_testcase_2:
+      cancelRunningFuture: false
+      timeoutDuration: 2s
+    almr_testcase_3:
+      cancelRunningFuture: false
+      timeoutDuration: 2s
+    almr_testcase_4:
+      cancelRunningFuture: false
+      timeoutDuration: 2s
+    almr_testcase_5:
+      cancelRunningFuture: false
+      timeoutDuration: 2s
+    almr_testcase_6:
+      cancelRunningFuture: false
+      timeoutDuration: 2s
+    almr_testcase_7:
+      cancelRunningFuture: false
+      timeoutDuration: 2s
+    almr_testcase_8:
+      cancelRunningFuture: false
+      timeoutDuration: 2s
+    almr_testcase_9:
+      cancelRunningFuture: false
+      timeoutDuration: 2s
+    almr_testcase_10:
+      cancelRunningFuture: false
+      timeoutDuration: 2s

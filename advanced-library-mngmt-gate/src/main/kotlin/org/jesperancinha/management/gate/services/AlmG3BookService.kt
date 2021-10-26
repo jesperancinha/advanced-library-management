@@ -26,27 +26,27 @@ open class AlmG3BookService(
         webClientInterface.getBookViaReactiveServiceById(id)
 
     open fun getBookByIdJPA(id: Long, exception: WebClientRequestException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.getBookViaJpaServiceById(id)
     }
 
     open fun getBookByIdJPA(id: Long, exception: ReactiveAccessException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.getBookViaJpaServiceById(id)
     }
 
     open fun getBookByIdJPA(id: Long, exception: CallNotPermittedException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.getBookViaJpaServiceById(id)
     }
 
     open fun getBookByIdJPA(id: Long, exception: TimeoutException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.getBookViaJpaServiceById(id)
     }
 
     open fun getBookByIdJPA(id: Long, exception: IgnoredException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.getBookViaJpaServiceById(id)
     }
 
@@ -56,22 +56,22 @@ open class AlmG3BookService(
     }
 
     open fun createBookByIdJPA(bookDto: BookDto, exception: ReactiveAccessException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.sendViaJpaServiceBook(bookDto)
     }
 
     open fun createBookByIdJPA(bookDto: BookDto, exception: CallNotPermittedException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.sendViaJpaServiceBook(bookDto)
     }
 
     open fun createBookByIdJPA(bookDto: BookDto, exception: TimeoutException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.sendViaJpaServiceBook(bookDto)
     }
 
     open fun createBookByIdJPA(bookDto: BookDto, exception: IgnoredException): Mono<BookDto> {
-        logger.info("Current Exception -> {}", exception)
+        logger.info("Current Exception:", exception)
         return webClientInterface.sendViaJpaServiceBook(bookDto)
     }
 

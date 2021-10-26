@@ -1,0 +1,6 @@
+Method,Name,Error,Occurrences
+GET,/api/almg/books/g5/1,500 Server Error:  for url: http://localhost:8080/api/almg/books/g5/1,29
+GET,/api/almg/books/g3/1,500 Server Error:  for url: http://localhost:8080/api/almg/books/g3/1,40
+GET,/api/almg/books/g2/1,500 Server Error:  for url: http://localhost:8080/api/almg/books/g2/1,56
+GET,/api/almg/books/g1/1,500 Server Error:  for url: http://localhost:8080/api/almg/books/g1/1,52
+GET,/api/almg/books/g4/1,500 Server Error:  for url: http://localhost:8080/api/almg/books/g4/1,53

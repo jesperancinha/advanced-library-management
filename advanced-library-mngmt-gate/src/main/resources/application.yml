@@ -43,6 +43,7 @@ resilience4j.circuitbreaker:
         - java.util.concurrent.TimeoutException
         - java.io.IOException
         - org.jesperancinha.management.gate.exception.ReactiveAccessException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_3:
@@ -77,6 +78,7 @@ resilience4j.circuitbreaker:
         - java.util.concurrent.TimeoutException
         - java.io.IOException
         - org.jesperancinha.management.gate.exception.ReactiveAccessException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_5:
@@ -93,6 +95,7 @@ resilience4j.circuitbreaker:
         - java.util.concurrent.TimeoutException
         - java.io.IOException
         - org.jesperancinha.management.gate.exception.ReactiveAccessException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_6:
@@ -108,6 +111,7 @@ resilience4j.circuitbreaker:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_7:
@@ -123,6 +127,7 @@ resilience4j.circuitbreaker:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_8:
@@ -138,6 +143,7 @@ resilience4j.circuitbreaker:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_9:
@@ -153,6 +159,7 @@ resilience4j.circuitbreaker:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
     almr_testcase_10:
@@ -168,6 +175,7 @@ resilience4j.circuitbreaker:
         - org.springframework.web.client.HttpServerErrorException
         - java.util.concurrent.TimeoutException
         - java.io.IOException
+        - org.springframework.web.reactive.function.client.WebClientRequestException
       ignoreExceptions:
         - org.jesperancinha.management.gate.exception.IgnoredException
 resilience4j.retry:
