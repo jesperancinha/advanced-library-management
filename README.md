@@ -5,7 +5,22 @@
 [![Twitter URL](https://img.shields.io/twitter/url?logoColor=blue&style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Fstyle%3Dsocial)](https://twitter.com/intent/tweet?text=Checkout%20this%20@bitbucket%20repo%20by%20@joaofse%20%F0%9F%91%A8%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB:%20https://github.com/jesperancinha/advanced-library-management)
 [![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=City%20Library%20Management&color=informational)](https://github.com/jesperancinha/advanced-library-management)
 
+[![CircleCI](https://circleci.com/gh/jesperancinha/advanced-library-management/tree/main.svg?style=svg)](https://circleci.com/gh/jesperancinha/advanced-library-management/tree/main)
+[![advanced-library-management](https://github.com/jesperancinha/advanced-library-management/actions/workflows/advanced-library-management.yml/badge.svg)](https://github.com/jesperancinha/advanced-library-management/actions/workflows/advanced-library-management.yml)
+
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/740ca01b0bb441f195e2e401d5790dcb)](https://www.codacy.com/gh/jesperancinha/advanced-library-management/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/advanced-library-management&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/919ef38a-f871-4efa-9a7a-5af3cc3fbd12)](https://codebeat.co/projects/github-com-jesperancinha-advanced-library-management-main)
+[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/advanced-library-management?branch=main)](https://bettercodehub.com/results/jesperancinha/advanced-library-management)
+
+
+[![codecov](https://codecov.io/gh/jesperancinha/advanced-library-management/branch/main/graph/badge.svg?token=Cv4vqmHnKz)](https://codecov.io/gh/jesperancinha/advanced-library-management)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/740ca01b0bb441f195e2e401d5790dcb)](https://www.codacy.com/gh/jesperancinha/advanced-library-management/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/advanced-library-management&utm_campaign=Badge_Coverage)
+[![Coverage Status](https://coveralls.io/repos/github/jesperancinha/advanced-library-management/badge.svg?branch=main)](https://coveralls.io/github/jesperancinha/advanced-library-management?branch=main)
+
+
+[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/concert-demos-root.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/concert-demos-root.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/concert-demos-root.svg)](#)
 
 ---
 
