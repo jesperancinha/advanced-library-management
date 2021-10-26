@@ -26,8 +26,10 @@ data class Book(
     @field: Enumerated(STRING)
     override val source: SourceType,
     @field: Column
-    override val timestamp: Long = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC)
-) : Book(id, title, source, timestamp) {
+    override val timestamp: Long = LocalDateTime.now().toEpochSecond(ZoneOffset.UTC),
+    @field: Column
+    override var newField: Boolean? = false
+) : Book(id, title, source, timestamp, newField) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false

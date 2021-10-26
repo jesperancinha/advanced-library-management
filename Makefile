@@ -25,11 +25,15 @@ docker-local:
 docker-clean-build-start: docker-clean b docker
 docker-clean-start: docker-clean docker
 docker-stop-spring:
-	docker stop advanced_library_mngmt_reactive
-	docker stop advanced_library_mngmt_mvc
+	docker stop jofisaes_advanced_library_mngmt_reactive
+	docker stop jofisaes_advanced_library_mngmt_mvc
 docker-start-spring:
-	docker start advanced_library_mngmt_reactive
-	docker start advanced_library_mngmt_mvc
+	docker start jofisaes_advanced_library_mngmt_reactive
+	docker start jofisaes_advanced_library_mngmt_mvc
+docker-stop-reactive:
+	docker stop jofisaes_advanced_library_mngmt_reactive
+docker-stop-mvc:
+	docker stop jofisaes_advanced_library_mngmt_mvc
 stop:
 	docker-compose down --remove-orphans
 prune-all: stop

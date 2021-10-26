@@ -10,6 +10,7 @@ open class Book(
     open val title: String,
     open val source: SourceType,
     open val timestamp: Long,
+    open val newField: Boolean?,
 ) {
-    constructor() : this(1L, "", SourceType.REACTIVE, 0)
+    constructor() : this(1L, "", SourceType.REACTIVE, 0, false)
 }
