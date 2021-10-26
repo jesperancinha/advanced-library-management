@@ -27,6 +27,19 @@
 
 Using Resilience4J, this is a Demo project which uses a Library as background and manages all its requests. This library can rent books online and the usage rate is extremely high. There is a reactive way to access, which is the one normally used, but sometimes, the system needs a bit of help from an old machine running a non-reactive MVC Spring application using JPA. Let's make this in Kotlin and find the best solution!
 
+This repo is also the official support article to my article on medium:
+
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://itnext.io/city-library-an-advanced-guide-to-circuit-breakers-in-kotlin-256393213bdf) [City Library — An advanced guide to Circuit Breakers in Kotlin](https://itnext.io/city-library-an-advanced-guide-to-circuit-breakers-in-kotlin-256393213bdf)
+
+## Project Layout
+
+1. [advanced-library-management](./advanced-library-management) -  An Angular Project for the future
+2. [Advanced Library Management Common](./advanced-library-mngmt-common) - A Kotlin based library with the common dto's and domain definition
+3. [Advanced Library Management Gate](./advanced-library-mngmt-gate) - A Spring Kotlin base service working as the Gate on port 8080
+4. [Advanced Library Management Model View Controller](./advanced-library-mngmt-mvc) - A Spring Kotlin base service working as the MVC service with JPA on port 8081
+5. [Advanced Library Management Reactive MVC](.advanced-library-mngmt-reactive) - A Spring Kotlin base service working as the reactive service with R2DBC on port 8082
+
+
 ## Buy me a coffee
 
 I hope you enjoyed this repository. If you did please buy me a coffee which enables me to constantly improve and make new free content regularly for everyone. Thank you so much!
