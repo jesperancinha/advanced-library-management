@@ -40,6 +40,7 @@
         <maven-compiler-plugin.target>17</maven-compiler-plugin.target>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
+        <reactor-test.version>3.4.11</reactor-test.version>
     </properties>
 
     <dependencyManagement>
@@ -180,6 +181,12 @@
                 <groupId>com.ninja-squad</groupId>
                 <artifactId>springmockk</artifactId>
                 <version>${springmockk.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-test</artifactId>
+                <version>${reactor-test.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
