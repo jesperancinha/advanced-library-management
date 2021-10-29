@@ -44,4 +44,4 @@ prune-all: stop
 	docker system prune --all --volumes
 case:
 locust-start:
-	cd locust && locust
+	cd locust && locust --host localhost
