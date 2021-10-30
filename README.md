@@ -34,6 +34,7 @@
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/postgres-50.png "PostgreSQL")](https://www.postgresql.org/)
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/spring-50.png)](https://spring.io/)
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/spring-boot-50.png)](https://spring.io/projects/spring-boot)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/spring-webflux-50.png)](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html)
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/angular-50.png "Angular")](https://angular.io/)
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/bash-50.png)](https://www.gnu.org/software/bash/)
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/jupiter5-50.png "Jupiter 5")](https://junit.org/junit5/docs/current/user-guide/)
@@ -50,11 +51,11 @@ This repo is also the official support article to my article on medium:
 
 ## Project Layout
 
-1. [advanced-library-management](./advanced-library-management) -  An Angular Project for the future
-2. [Advanced Library Management Common](./advanced-library-mngmt-common) - A Kotlin based library with the common dto's and domain definition
-3. [Advanced Library Management Gate](./advanced-library-mngmt-gate) - A Spring Kotlin base service working as the Gate on port 8080
-4. [Advanced Library Management Model View Controller](./advanced-library-mngmt-mvc) - A Spring Kotlin base service working as the MVC service with JPA on port 8081
-5. [Advanced Library Management Reactive MVC](.advanced-library-mngmt-reactive) - A Spring Kotlin base service working as the reactive service with R2DBC on port 8082
+1.  [advanced-library-management](./advanced-library-management) -  An Angular Project for the future
+2.  [Advanced Library Management Common](./advanced-library-mngmt-common) - A Kotlin based library with the common dto's and domain definition
+3.  [Advanced Library Management Gate](./advanced-library-mngmt-gate) - A Spring Kotlin base service working as the Gate on port 8080
+4.  [Advanced Library Management Model View Controller](./advanced-library-mngmt-mvc) - A Spring Kotlin base service working as the MVC service with JPA on port 8081
+5.  [Advanced Library Management Reactive MVC](.advanced-library-mngmt-reactive) - A Spring Kotlin base service working as the reactive service with R2DBC on port 8082
 
 
 ## Buy me a coffee
@@ -65,10 +66,10 @@ I hope you enjoyed this repository. If you did please buy me a coffee which enab
 
 ## References
 
-- [Building resilient connections using a circuit breaker](https://www.luminis.eu/blog/building-resilient-connections-using-a-circuit-breaker/)
-- [Resilience 4J Kotlin](https://resilience4j.readme.io/docs/getting-started-4)
-- [How to Use Resilience4j to Implement Circuit Breaker?](https://www.webagesolutions.com/blog/how-to-use-resilience4j-to-implement-circuit-breaker)
-- [RESILIENCE4J CONFIGURATION](https://camel.apache.org/components/latest/eips/resilience4jConfiguration-eip.html)
+-   [Building resilient connections using a circuit breaker](https://www.luminis.eu/blog/building-resilient-connections-using-a-circuit-breaker/)
+-   [Resilience 4J Kotlin](https://resilience4j.readme.io/docs/getting-started-4)
+-   [How to Use Resilience4j to Implement Circuit Breaker?](https://www.webagesolutions.com/blog/how-to-use-resilience4j-to-implement-circuit-breaker)
+-   [RESILIENCE4J CONFIGURATION](https://camel.apache.org/components/latest/eips/resilience4jConfiguration-eip.html)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
