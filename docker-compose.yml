@@ -38,7 +38,7 @@ services:
     build:
       context: advanced-library-mngmt-reactive/.
     ports:
-      - 8081:8081
+      - "8081:8081"
     restart: on-failure
     depends_on:
       - jofisaes_advanced_library_mngmt_postgres
