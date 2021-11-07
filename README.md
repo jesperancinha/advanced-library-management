@@ -52,12 +52,12 @@ This repo is also the official support article to my article on medium:
 
 ## Project Layout
 
-1. [advanced-library-management](./advanced-library-management) -  An Angular Project for the future
-2. [Advanced Library Management Common](./advanced-library-mngmt-common) - A Kotlin based library with the common dto's and domain definition
-3. [Advanced Library Management Gate](./advanced-library-mngmt-gate) - A Spring Kotlin base service working as the Gate on port 8080
-4. [Advanced Library Management Model View Controller](./advanced-library-mngmt-mvc) - A Spring Kotlin base service working as the MVC service with JPA on port 8081
-5. [Advanced Library Management Reactive MVC](./advanced-library-mngmt-reactive) - A Spring Kotlin base service working as the reactive service with R2DBC on port 8082
-6. [locust](./locust) - The location of all Locust tests
+1.  [advanced-library-management](./advanced-library-management) -  An Angular Project for the future
+2.  [Advanced Library Management Common](./advanced-library-mngmt-common) - A Kotlin based library with the common dto's and domain definition
+3.  [Advanced Library Management Gate](./advanced-library-mngmt-gate) - A Spring Kotlin base service working as the Gate on port 8080
+4.  [Advanced Library Management Model View Controller](./advanced-library-mngmt-mvc) - A Spring Kotlin base service working as the MVC service with JPA on port 8081
+5.  [Advanced Library Management Reactive MVC](./advanced-library-mngmt-reactive) - A Spring Kotlin base service working as the reactive service with R2DBC on port 8082
+6.  [locust](./locust) - The location of all Locust tests
 
 ## Java Setup
 

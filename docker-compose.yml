@@ -3,6 +3,10 @@ version: "3.7"
 networks:
   mngmt:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${NETWORK_SUBNET}
 
 services:
   jofisaes_advanced_library_mngmt_postgres:
@@ -17,33 +21,40 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - mngmt
+      mngmt:
+        ipv4_address: ${POSTGRES_IP}
 
   jofisaes_advanced_library_mngmt_gate:
     hostname: jofisaes_advanced_library_mngmt_gate
     container_name: jofisaes_advanced_library_mngmt_gate
     build:
       context: advanced-library-mngmt-gate/.
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     restart: on-failure
     depends_on:
       - jofisaes_advanced_library_mngmt_postgres
     networks:
-      - mngmt
+      mngmt:
+        ipv4_address: ${ALM_GATE_IP}
 
   jofisaes_advanced_library_mngmt_reactive:
     hostname: jofisaes_advanced_library_mngmt_reactive
     container_name: jofisaes_advanced_library_mngmt_reactive
     build:
       context: advanced-library-mngmt-reactive/.
+    env_file:
+      - .env
     ports:
       - "8081:8081"
     restart: on-failure
     depends_on:
       - jofisaes_advanced_library_mngmt_postgres
     networks:
-      - mngmt
+      mngmt:
+        ipv4_address: ${ALM_REACTIVE_IP}
 
   jofisaes_advanced_library_mngmt_mvc:
     hostname: jofisaes_advanced_library_mngmt_mvc
@@ -56,6 +67,6 @@ services:
     depends_on:
       - jofisaes_advanced_library_mngmt_postgres
     networks:
-      - mngmt
-
+      mngmt:
+        ipv4_address: ${ALM_MVC_IP}
 
