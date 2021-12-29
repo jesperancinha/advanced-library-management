@@ -22,14 +22,14 @@
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.6.0-RC</kotlin.version>
+        <kotlin.version>1.6.10</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
         <r2dbc-postgresql.version>0.8.10.RELEASE</r2dbc-postgresql.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <kotlin-logging-jvm.version>2.0.11</kotlin-logging-jvm.version>
         <kotlinx-coroutines-core.version>1.5.1</kotlinx-coroutines-core.version>
         <kotlinx-coroutines-reactor.version>1.5.2</kotlinx-coroutines-reactor.version>
-        <spring-boot.version>2.5.6</spring-boot.version>
+        <spring-boot.version>2.6.2</spring-boot.version>
         <mockk.version>1.11.0</mockk.version>
         <kotest.version>4.6.0</kotest.version>
         <springmockk.version>3.1.0</springmockk.version>
