@@ -39,7 +39,7 @@
         <maven-compiler-plugin.source>17</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>17</maven-compiler-plugin.target>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
-        <omni-coveragereporter-maven-plugin.version>1.0-SNAPSHOT</omni-coveragereporter-maven-plugin.version>
+        <omni-coveragereporter-maven-plugin.version>0.0.2</omni-coveragereporter-maven-plugin.version>
         <reactor-test.version>3.4.11</reactor-test.version>
         <maven-plugin.version>3.0.0-M5</maven-plugin.version>
     </properties>
@@ -229,14 +229,7 @@
                 <plugin>
                     <groupId>org.jesperancinha.plugins</groupId>
                     <artifactId>omni-coveragereporter-maven-plugin</artifactId>
-                    <version>0.0.0</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>javax.xml.bind</groupId>
-                            <artifactId>jaxb-api</artifactId>
-                            <version>${jaxb-api.version}</version>
-                        </dependency>
-                    </dependencies>
+                    <version>${omni-coveragereporter-maven-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
