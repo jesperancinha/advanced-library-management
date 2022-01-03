@@ -31,7 +31,7 @@
         <kotlinx-coroutines-reactor.version>1.5.2</kotlinx-coroutines-reactor.version>
         <spring-boot.version>2.6.2</spring-boot.version>
         <mockk.version>1.11.0</mockk.version>
-        <kotest.version>4.6.0</kotest.version>
+        <kotest.version>5.0.3</kotest.version>
         <springmockk.version>3.1.0</springmockk.version>
         <postgresql.version>42.2.24</postgresql.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
@@ -40,7 +40,7 @@
         <maven-compiler-plugin.target>17</maven-compiler-plugin.target>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
         <omni-coveragereporter-maven-plugin.version>0.0.2</omni-coveragereporter-maven-plugin.version>
-        <reactor-test.version>3.4.11</reactor-test.version>
+        <reactor-test.version>3.4.13</reactor-test.version>
         <maven-plugin.version>3.0.0-M5</maven-plugin.version>
     </properties>
 
