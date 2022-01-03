@@ -19,6 +19,7 @@ jobs:
         distribution: 'adopt'
     - name: Build and Test
       run:  mvn clean install jacoco:prepare-agent package jacoco:report
+
     - name: Coverage with Coveralls
       run: mvn omni-coveragereporter:report
       env:
