@@ -29,3 +29,7 @@ target
 bin
 build
 dist
+
+# OS
+.DS_Store
+__pycache__

@@ -22,25 +22,26 @@
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.6.0-RC</kotlin.version>
+        <kotlin.version>1.6.10</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
         <r2dbc-postgresql.version>0.8.10.RELEASE</r2dbc-postgresql.version>
         <resilience4j.version>1.7.1</resilience4j.version>
-        <kotlin-logging-jvm.version>2.0.11</kotlin-logging-jvm.version>
-        <kotlinx-coroutines-core.version>1.5.1</kotlinx-coroutines-core.version>
-        <kotlinx-coroutines-reactor.version>1.5.2</kotlinx-coroutines-reactor.version>
-        <spring-boot.version>2.5.6</spring-boot.version>
-        <mockk.version>1.11.0</mockk.version>
-        <kotest.version>4.6.0</kotest.version>
-        <springmockk.version>2.0.3</springmockk.version>
-        <postgresql.version>42.2.24</postgresql.version>
+        <kotlin-logging-jvm.version>2.1.21</kotlin-logging-jvm.version>
+        <kotlinx-coroutines-core.version>1.6.0</kotlinx-coroutines-core.version>
+        <kotlinx-coroutines-reactor.version>1.6.0</kotlinx-coroutines-reactor.version>
+        <spring-boot.version>2.6.2</spring-boot.version>
+        <mockk.version>1.12.2</mockk.version>
+        <kotest.version>5.0.3</kotest.version>
+        <springmockk.version>3.1.0</springmockk.version>
+        <postgresql.version>42.3.1</postgresql.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-compiler-plugin.source>17</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>17</maven-compiler-plugin.target>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
-        <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
-        <reactor-test.version>3.4.11</reactor-test.version>
+        <omni-coveragereporter-maven-plugin.version>0.0.2</omni-coveragereporter-maven-plugin.version>
+        <reactor-test.version>3.4.13</reactor-test.version>
+        <maven-plugin.version>3.0.0-M5</maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -226,16 +227,9 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>org.eluder.coveralls</groupId>
-                    <artifactId>coveralls-maven-plugin</artifactId>
-                    <version>${coveralls-maven-plugin.version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>javax.xml.bind</groupId>
-                            <artifactId>jaxb-api</artifactId>
-                            <version>${jaxb-api.version}</version>
-                        </dependency>
-                    </dependencies>
+                    <groupId>org.jesperancinha.plugins</groupId>
+                    <artifactId>omni-coveragereporter-maven-plugin</artifactId>
+                    <version>${omni-coveragereporter-maven-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
