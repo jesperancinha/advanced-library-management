@@ -1,15 +1,14 @@
 package org.jesperancinha.management.reactive.domain
 
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
 import org.jesperancinha.management.domain.Book
 import org.jesperancinha.management.dtos.SourceType
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.data.annotation.Id
 import org.springframework.data.domain.Persistable
 import org.springframework.data.relational.core.mapping.Column
 import java.time.LocalDateTime
 import java.time.ZoneOffset.UTC
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
 
 
 data class Book(
