@@ -35,7 +35,7 @@
         <springmockk.version>3.1.0</springmockk.version>
         <postgresql.version>42.3.1</postgresql.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
         <maven-compiler-plugin.source>17</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>17</maven-compiler-plugin.target>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
