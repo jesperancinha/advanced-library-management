@@ -40,7 +40,7 @@
         <maven-compiler-plugin.target>17</maven-compiler-plugin.target>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
-        <reactor-test.version>3.4.14</reactor-test.version>
+        <reactor-test.version>3.4.15</reactor-test.version>
         <maven-plugin.version>3.0.0-M5</maven-plugin.version>
     </properties>
 
