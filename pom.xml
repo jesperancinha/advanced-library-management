@@ -29,7 +29,7 @@
         <kotlin-logging-jvm.version>2.1.21</kotlin-logging-jvm.version>
         <kotlinx-coroutines-core.version>1.6.1-native-mt</kotlinx-coroutines-core.version>
         <kotlinx-coroutines-reactor.version>1.6.1-native-mt</kotlinx-coroutines-reactor.version>
-        <spring-boot.version>2.6.8</spring-boot.version>
+        <spring-boot.version>2.7.0</spring-boot.version>
         <mockk.version>1.12.4</mockk.version>
         <kotest.version>5.3.0</kotest.version>
         <springmockk.version>3.1.1</springmockk.version>
