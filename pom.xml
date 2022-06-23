@@ -27,7 +27,7 @@
         <r2dbc-postgresql.version>0.8.12.RELEASE</r2dbc-postgresql.version>
         <resilience4j.version>1.7.1</resilience4j.version>
         <kotlin-logging-jvm.version>2.1.23</kotlin-logging-jvm.version>
-        <kotlinx-coroutines-core.version>1.6.1-native-mt</kotlinx-coroutines-core.version>
+        <kotlinx-coroutines-core.version>1.6.3-native-mt</kotlinx-coroutines-core.version>
         <kotlinx-coroutines-reactor.version>1.6.3-native-mt</kotlinx-coroutines-reactor.version>
         <spring-boot.version>2.7.0</spring-boot.version>
         <mockk.version>1.12.4</mockk.version>
