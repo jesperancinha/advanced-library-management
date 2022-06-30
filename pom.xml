@@ -42,6 +42,7 @@
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
         <reactor-test.version>3.4.19</reactor-test.version>
         <maven-plugin.version>3.0.0-M7</maven-plugin.version>
+        <kotlinx-coroutines-debug.version>1.6.3</kotlinx-coroutines-debug.version>
     </properties>
 
     <dependencyManagement>
@@ -189,6 +190,20 @@
                 <artifactId>reactor-test</artifactId>
                 <version>${reactor-test.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <!-- This Dependency is added as a workaround for the following issue -->
+            <!--- https://github.com/Kotlin/kotlinx.coroutines/issues/3334 -->
+            <dependency>
+                <groupId>org.jetbrains.kotlinx</groupId>
+                <artifactId>kotlinx-coroutines-debug</artifactId>
+                <version>${kotlinx-coroutines-debug.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jetbrains.kotlinx</groupId>
+                        <artifactId>kotlinx-coroutines-bom</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>
