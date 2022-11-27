@@ -6,8 +6,8 @@ import org.jesperancinha.management.dtos.SourceType
 import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.util.Objects.hash
-import javax.persistence.*
-import javax.persistence.EnumType.STRING
+import jakarta.persistence.*
+import jakarta.persistence.EnumType.STRING
 
 /**
  * In JetBrains recommendations:
