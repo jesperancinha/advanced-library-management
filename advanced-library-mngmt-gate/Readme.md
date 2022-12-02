@@ -162,6 +162,29 @@ ignoreExceptions:
   - org.jesperancinha.management.gate.exception.IgnoredException
 ```
 
+## Message Body example
+
+```json
+{
+  "status": "UP",
+  "components": {
+    "diskSpace": {
+      "status": "UP",
+      "details": {
+        "total": 500609097728,
+        "free": 314986340352,
+        "threshold": 10485760,
+        "path": "/home/jesperancinha/dev/src/advanced-library-management/advanced-library-mngmt-gate/.",
+        "exists": true
+      }
+    },
+    "ping": {
+      "status": "UP"
+    }
+  }
+}
+```
+
 ## Endpoints
 
 -   [Actuator](http://localhost:8080/actuator)
