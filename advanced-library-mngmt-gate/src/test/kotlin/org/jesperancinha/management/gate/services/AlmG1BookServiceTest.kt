@@ -5,6 +5,7 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.reactor.mono
 import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.gate.client.WebClient
 import org.jesperancinha.management.gate.domain.Body
@@ -15,7 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.test.web.client.getForEntity
-import org.springframework.boot.web.server.LocalServerPort
+import org.springframework.boot.test.web.server.LocalServerPort
 import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.annotation.DirtiesContext.HierarchyMode.EXHAUSTIVE
 import org.springframework.test.context.ActiveProfiles
@@ -40,9 +41,9 @@ class AlmG1BookServiceTest(
 
     @Test
     fun testGetBookByIdTestWhenTimeoutRetrieveThenSolution() {
-        every { webClient.getBookViaReactiveServiceById(100L) } returns Mono.just(mockk<BookDto>())
+        every { webClient.getBookViaReactiveServiceById(100L) } returns mono { (mockk<BookDto>()) }
             .delayElement(Duration.ofSeconds(5L))
-        every { webClient.getBookViaJpaServiceById(100L) } returns Mono.just(BookDto(0L, "Solution"))
+        every { webClient.getBookViaJpaServiceById(100L) } returns mono {  (BookDto(0L, "Solution"))}
 
         val bookById = almG1BookService.getBookById(100L)
 

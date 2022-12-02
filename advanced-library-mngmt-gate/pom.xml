@@ -61,7 +61,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.resilience4j</groupId>
-            <artifactId>resilience4j-spring-boot2</artifactId>
+            <artifactId>resilience4j-spring-boot3</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.resilience4j</groupId>
@@ -145,6 +145,9 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
+                <configuration>
+                    <jvmTarget>${java.version}</jvmTarget>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>
