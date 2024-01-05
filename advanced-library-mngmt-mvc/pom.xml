@@ -90,6 +90,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <jvmTarget>${java.version}</jvmTarget>
                     <compilerPlugins>
                         <!-- Or "jpa" for JPA support -->
                         <plugin>no-arg</plugin>

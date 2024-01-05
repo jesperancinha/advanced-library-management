@@ -45,3 +45,15 @@ prune-all: stop
 case:
 locust-start:
 	cd locust && locust --host localhost
+update:
+	find . -name "package-lock.json" | xargs rm; \
+	find . -name "yarn.lock" | xargs rm; \
+	git pull; \
+	curl --compressed -o- -L https://yarnpkg.com/install.sh | bash; \
+	npm install caniuse-lite; \
+	npm install -g npm-check-updates; \
+	cd advanced-library-management; \
+		yarn; \
+		npx browserslist --update-db; \
+		ncu -u; \
+		yarn

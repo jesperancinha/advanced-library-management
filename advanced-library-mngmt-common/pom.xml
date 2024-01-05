@@ -27,7 +27,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.14.1</version>
+            <version>${jackson-annotations.version}</version>
         </dependency>
     </dependencies>
 
@@ -63,7 +63,7 @@
                         <plugin>jpa</plugin>
                         <plugin>spring</plugin>
                     </compilerPlugins>
-
+                    <jvmTarget>${java.version}</jvmTarget>
                     <pluginOptions>
                         <!--                        <option>no-arg:annotation=com.my.Annotation</option>-->
                         <!-- Call instance initializers in the synthetic constructor -->
