@@ -36,13 +36,14 @@
         <postgresql.version>42.5.1</postgresql.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
-        <maven-compiler-plugin.source>17</maven-compiler-plugin.source>
-        <maven-compiler-plugin.target>17</maven-compiler-plugin.target>
-        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+        <maven-compiler-plugin.source>${java.version}</maven-compiler-plugin.source>
+        <maven-compiler-plugin.target>${java.version}</maven-compiler-plugin.target>
+        <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
         <reactor-test.version>3.6.1</reactor-test.version>
         <maven-plugin.version>3.2.3</maven-plugin.version>
         <kotlinx-coroutines-debug.version>1.7.3</kotlinx-coroutines-debug.version>
+        <jackson-annotations.version>2.15.1</jackson-annotations.version>
     </properties>
 
     <dependencyManagement>
@@ -214,40 +215,11 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
                     <source>${maven-compiler-plugin.source}</source>
                     <target>${maven-compiler-plugin.target}</target>
                 </configuration>
             </plugin>
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco-maven-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>report</id>
-                            <phase>test</phase>
-                            <goals>
-                                <goal>report</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.jesperancinha.plugins</groupId>
-                    <artifactId>omni-coveragereporter-maven-plugin</artifactId>
-                    <version>${omni-coveragereporter-maven-plugin.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 
     <repositories>
