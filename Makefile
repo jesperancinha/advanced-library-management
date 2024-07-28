@@ -57,3 +57,5 @@ update:
 		npx browserslist --update-db; \
 		ncu -u; \
 		yarn
+accept-prs:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
