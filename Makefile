@@ -45,9 +45,10 @@ prune-all: stop
 case:
 locust-start:
 	cd locust && locust --host localhost
-update:
-	find . -name "package-lock.json" | xargs rm; \
-	find . -name "yarn.lock" | xargs rm; \
+remove-lock-files:
+	find . -name "package-lock.json" | xargs -I {} rm {}; \
+	find . -name "yarn.lock" | xargs -I {} rm {};
+update: remove-lock-files
 	git pull; \
 	curl --compressed -o- -L https://yarnpkg.com/install.sh | bash; \
 	npm install caniuse-lite; \
@@ -57,5 +58,18 @@ update:
 		npx browserslist --update-db; \
 		ncu -u; \
 		yarn
+deps-npm-update: update
+revert-deps-cypress-update:
+	if [ -f  e2e/docker-composetmp.yml ]; then rm e2e/docker-composetmp.yml; fi
+	if [ -f  e2e/packagetmp.json ]; then rm e2e/packagetmp.json; fi
+	git checkout e2e/docker-compose.yml
+	git checkout e2e/package.json
+deps-plugins-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash
+deps-java-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/javaUpdatesOne.sh | bash
+deps-node-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/nodeUpdatesOne.sh | bash
+deps-quick-update: deps-plugins-update deps-java-update deps-node-update
 accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
