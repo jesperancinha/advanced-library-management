@@ -40,7 +40,7 @@
         <maven-compiler-plugin.target>${java.version}</maven-compiler-plugin.target>
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
-        <reactor-test.version>3.6.8</reactor-test.version>
+        <reactor-test.version>3.6.9</reactor-test.version>
         <maven-plugin.version>3.3.1</maven-plugin.version>
         <kotlinx-coroutines-debug.version>1.8.1</kotlinx-coroutines-debug.version>
         <jackson-annotations.version>2.17.2</jackson-annotations.version>
