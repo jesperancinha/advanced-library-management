@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: maven:3.9.6-eclipse-temurin-21-alpine
+      - image: eclipse-temurin:21-alpine
 
     working_directory: ~/repo
 
@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - checkout
-
+      - run: apk add maven make
       - run: mvn clean install
 
       - save_cache:
@@ -26,5 +26,5 @@ jobs:
 
       - run: mvn package
 #       - run: mvn coveralls:report -Dconsolerizer.show=false -DrepoToken=${COVERALLS_REPO_TOKEN}
-      - run: bash <(curl -s https://codecov.io/bash)
-      - run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l Java $(find **/jacoco*.xml -printf '-r %p ')
+#      - run: bash <(curl -s https://codecov.io/bash)
+#      - run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -l Java $(find **/jacoco*.xml -printf '-r %p ')
