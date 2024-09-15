@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: maven:3.9.6-eclipse-temurin-21-alpine
+      - image: eclipse-temurin:21-alpine
 
     working_directory: ~/repo
 
