@@ -30,7 +30,7 @@
         <kotlinx-coroutines-core.version>1.6.3-native-mt</kotlinx-coroutines-core.version>
         <kotlinx-coroutines-reactor.version>1.6.3-native-mt</kotlinx-coroutines-reactor.version>
         <spring-boot.version>3.5.3</spring-boot.version>
-        <mockk.version>1.13.12</mockk.version>
+        <mockk.version>1.14.4</mockk.version>
         <kotest.version>5.9.1</kotest.version>
         <springmockk.version>4.0.2</springmockk.version>
         <postgresql.version>42.7.3</postgresql.version>
