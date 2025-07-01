@@ -22,10 +22,10 @@
     <properties>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>2.1.0</kotlin.version>
+        <kotlin.version>2.2.0</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
         <r2dbc-postgresql.version>0.8.13.RELEASE</r2dbc-postgresql.version>
-        <resilience4j.version>2.2.0</resilience4j.version>
+        <resilience4j.version>2.3.0</resilience4j.version>
         <kotlin-logging-jvm.version>3.0.5</kotlin-logging-jvm.version>
         <kotlinx-coroutines-core.version>1.6.3-native-mt</kotlinx-coroutines-core.version>
         <kotlinx-coroutines-reactor.version>1.6.3-native-mt</kotlinx-coroutines-reactor.version>
@@ -39,7 +39,7 @@
         <maven-compiler-plugin.source>${java.version}</maven-compiler-plugin.source>
         <maven-compiler-plugin.target>${java.version}</maven-compiler-plugin.target>
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
-        <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
+        <omni-coveragereporter-maven-plugin.version>0.4.5</omni-coveragereporter-maven-plugin.version>
         <reactor-test.version>3.7.7</reactor-test.version>
         <maven-plugin.version>3.5.3</maven-plugin.version>
         <kotlinx-coroutines-debug.version>1.10.2</kotlinx-coroutines-debug.version>
