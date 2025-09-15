@@ -41,7 +41,7 @@
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
         <omni-coveragereporter-maven-plugin.version>0.4.5</omni-coveragereporter-maven-plugin.version>
         <reactor-test.version>3.7.11</reactor-test.version>
-        <maven-plugin.version>3.5.3</maven-plugin.version>
+        <maven-plugin.version>3.5.4</maven-plugin.version>
         <kotlinx-coroutines-debug.version>1.10.2</kotlinx-coroutines-debug.version>
         <jackson-annotations.version>2.19.1</jackson-annotations.version>
     </properties>
