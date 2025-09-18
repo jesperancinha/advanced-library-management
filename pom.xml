@@ -33,7 +33,7 @@
         <mockk.version>1.14.5</mockk.version>
         <kotest.version>6.0.3</kotest.version>
         <springmockk.version>4.0.2</springmockk.version>
-        <postgresql.version>42.7.7</postgresql.version>
+        <postgresql.version>42.7.8</postgresql.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
         <maven-compiler-plugin.source>${java.version}</maven-compiler-plugin.source>
