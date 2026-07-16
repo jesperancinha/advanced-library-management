@@ -27,17 +27,14 @@ import java.net.URI
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ActiveProfiles("prod")
 @DirtiesContext(methodMode = DirtiesContext.MethodMode.BEFORE_METHOD, hierarchyMode = EXHAUSTIVE)
-class AlmG2BookStartupServiceTest(
-    @Autowired
+class AlmG2BookStartupServiceTest @Autowired constructor(
     private val almG2BookService: AlmG2BookService,
-    @LocalServerPort
+    @param:LocalServerPort
     private val localPort: Long,
-    @Autowired
     private val testRestTemplate: TestRestTemplate,
-) {
-
     @MockkBean(relaxed = true)
-    lateinit var webClient: WebClient
+    private val webClient: WebClient,
+) {
 
     @Test
     fun testGetBookCBByIdTestWhenTimeoutRetrieveSolution() {

@@ -27,17 +27,14 @@ import java.time.Duration
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ActiveProfiles("prod")
 @DirtiesContext(methodMode = DirtiesContext.MethodMode.BEFORE_METHOD, hierarchyMode = EXHAUSTIVE)
-class AlmG3BookStartupServiceTest(
-    @Autowired
+class AlmG3BookStartupServiceTest @Autowired constructor(
     private val almG3BookService: AlmG3BookService,
-    @LocalServerPort
+    @param:LocalServerPort
     private val localPort: Long,
-    @Autowired
     private val testRestTemplate: TestRestTemplate,
-) {
-
     @MockkBean(relaxed = true)
-    lateinit var webClient: WebClient
+    private val webClient: WebClient,
+) {
 
     @Test
     fun testGetBookCBByIdTestWhenTimeoutRetrieveSolution() {
