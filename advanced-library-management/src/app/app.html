@@ -419,13 +419,27 @@
   </div>
 
   <!-- Terminal -->
-  <div class="terminal" [ngSwitch]="selection.value">
-      <pre *ngSwitchDefault>ng generate component xyz</pre>
-      <pre *ngSwitchCase="'material'">ng add angular/material</pre>
-      <pre *ngSwitchCase="'pwa'">ng add angular/pwa</pre>
-      <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-      <pre *ngSwitchCase="'test'">ng test</pre>
-      <pre *ngSwitchCase="'build'">ng build</pre>
+  <div class="terminal">
+    @switch (selection.value) {
+      @case ('material') {
+        <pre>ng add angular/material</pre>
+      }
+      @case ('pwa') {
+        <pre>ng add angular/pwa</pre>
+      }
+      @case ('dependency') {
+        <pre>ng add _____</pre>
+      }
+      @case ('test') {
+        <pre>ng test</pre>
+      }
+      @case ('build') {
+        <pre>ng build</pre>
+      }
+      @default {
+        <pre>ng generate component xyz</pre>
+      }
+    }
   </div>
 
   <!-- Links -->
