@@ -5,9 +5,6 @@ import org.jesperancinha.management.reactive.service.AdvancedLibraryBookService
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono
 
-/**
- * Created by jofisaes on 20/10/2021
- */
 @RestController
 @RequestMapping("books")
 class AdvancedLibraryBookController(

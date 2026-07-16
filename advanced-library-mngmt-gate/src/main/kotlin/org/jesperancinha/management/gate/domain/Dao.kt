@@ -1,8 +1,5 @@
 package org.jesperancinha.management.gate.domain
 
-/**
- * Created by jofisaes on 22/10/2021
- */
 data class Body(
     val status: String?,
     val components: Components?
@@ -17,9 +14,6 @@ data class CircuitBreakers(
     constructor() : this(null, null)
 }
 
-/**
- * Created by jofisaes on 22/10/2021
- */
 data class Components(
     val circuitBreakers: CircuitBreakers?
 ) {

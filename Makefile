@@ -15,13 +15,13 @@ local: no-test
 no-test:
 	mvn clean install -DskipTests
 docker-clean:
-	docker-compose rm -svf
+	docker compose rm -svf
 docker:
 	rm -rf out
-	docker-compose up -d --build --remove-orphans
+	docker compose up -d --build --remove-orphans
 docker-local:
 	cd docker/local
-	docker-compose up -d --build --remove-orphans
+	docker compose up -d --build --remove-orphans
 docker-clean-build-start: docker-clean b docker
 docker-clean-start: docker-clean docker
 docker-stop-spring:
@@ -35,7 +35,7 @@ docker-stop-reactive:
 docker-stop-mvc:
 	docker stop jofisaes_advanced_library_mngmt_mvc
 stop:
-	docker-compose down --remove-orphans
+	docker compose down --remove-orphans
 prune-all: stop
 	docker ps -a --format '{{.ID}}' -q | xargs docker stop
 	docker ps -a --format '{{.ID}}' -q | xargs docker rm

@@ -18,9 +18,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/advanced-library-management/badge.svg?branch=main)](https://coveralls.io/github/jesperancinha/advanced-library-management?branch=main)
 
 
-[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/advanced-library-management.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/advanced-library-management.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/advanced-library-management.svg)](#)
+![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/advanced-library-management.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/advanced-library-management.svg)
+![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/advanced-library-management.svg)
 
 ---
 

@@ -7,9 +7,6 @@ import org.jesperancinha.management.mvc.repository.BookRepository
 import org.jesperancinha.management.mvc.repository.findOne
 import org.springframework.stereotype.Service
 
-/**
- * Created by jofisaes on 20/10/2021
- */
 @Service
 class AdvancedLibraryBookService(
     private val bookRepository: BookRepository,

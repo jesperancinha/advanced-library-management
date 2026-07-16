@@ -14,9 +14,9 @@ import reactor.core.publisher.Mono
 @Component
 @Profile("prod", "docker")
 class WebClient(
-    @Value("\${org.jesperancinha.management.reactive.host}")
+    @param:Value($$"${org.jesperancinha.management.reactive.host}")
     val reactiveHost: String,
-    @Value("\${org.jesperancinha.management.mvc.host}")
+    @param:Value($$"${org.jesperancinha.management.mvc.host}")
     val mvcHost: String
 ) : WebClientInterface {
 

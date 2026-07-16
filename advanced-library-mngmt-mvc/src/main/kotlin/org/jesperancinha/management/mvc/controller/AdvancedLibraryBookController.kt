@@ -4,9 +4,6 @@ import org.jesperancinha.management.dtos.BookDto
 import org.jesperancinha.management.mvc.service.AdvancedLibraryBookService
 import org.springframework.web.bind.annotation.*
 
-/**
- * Created by jofisaes on 20/10/2021
- */
 @RestController
 @RequestMapping("books")
 class AdvancedLibraryBookController(
