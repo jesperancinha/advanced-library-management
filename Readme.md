@@ -44,6 +44,19 @@ sdk install java 17-open
 sdk use java 17-open
 ```
 
+---
+
+## Claude
+
+Prompt claude with the following:
+
+### Run all skills
+```text
+please run skills angular, annotations, docker, java, jee, jvm, kotlin, parallel, readme, spring, and spring-test on this project
+```
+
+---
+
 ## References
 
 -   [Building resilient connections using a circuit breaker](https://www.luminis.eu/blog/building-resilient-connections-using-a-circuit-breaker/)

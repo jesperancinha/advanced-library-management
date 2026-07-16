@@ -33,3 +33,4 @@ dist
 # OS
 .DS_Store
 __pycache__
+dependabot.yml.bak
