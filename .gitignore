@@ -34,3 +34,7 @@ dist
 .DS_Store
 __pycache__
 dependabot.yml.bak
+
+# Generated files
+yarn.lock
+package-lock.json
